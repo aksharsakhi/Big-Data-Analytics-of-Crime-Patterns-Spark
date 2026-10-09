@@ -134,6 +134,7 @@ def generate_visualizations(csv_path="dataset/chicago_crimes_clean.csv", output_
     plt.tight_layout()
     fig3_path = os.path.join(output_dir, "fig3_model_confusion_matrix_roc.png")
     fig.savefig(fig3_path)
+    fig.savefig(fig3_path.replace('.png', '.pdf'))
     plt.close()
     print(f"[✓] Saved: {fig3_path}")
 
