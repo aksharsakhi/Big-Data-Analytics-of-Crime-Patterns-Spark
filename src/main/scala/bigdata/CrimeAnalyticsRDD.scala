@@ -185,6 +185,7 @@ object CrimeAnalyticsRDD {
 
       // Transformation 3: flatMap() - Tokenize location descriptions to extract location keywords
       println("\n         -> [Transformation 3: flatMap()] Tokenizing Location Keywords:")
+      // Fast regex split pattern across venue keywords
       val locationKeywords = crimesRdd
         .flatMap(crime => crime.locationDescription.split("[\\s,/]+"))
         .filter(_.length > 2)
