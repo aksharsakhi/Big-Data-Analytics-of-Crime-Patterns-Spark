@@ -125,7 +125,7 @@ def generate_visualizations(csv_path="dataset/chicago_crimes_clean.csv", output_
     # Confusion Matrix for Random Forest (Testing sample: ~2,000 records)
     # Authentic counts corresponding to ~12.5% positive arrest rate
     cm_matrix = np.array([[1708, 42], [148, 102]])
-    sns.heatmap(cm_matrix, annot=True, fmt='d', cmap='Blues', cbar=False, ax=ax_cm,
+    sns.heatmap(cm_matrix, annot=True, fmt='d', cmap='Blues', cbar=False, ax=ax_cm, square=True,
                 xticklabels=['Pred: Open (0)', 'Pred: Arrest (1)'],
                 yticklabels=['Actual: Open (0)', 'Actual: Arrest (1)'],
                 annot_kws={'size': 11, 'weight': 'bold'})
