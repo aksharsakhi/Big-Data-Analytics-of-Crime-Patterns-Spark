@@ -28,7 +28,7 @@ import time
 def run_pyspark_pipeline(csv_path="dataset/chicago_crimes_clean.csv", output_dir="visualizations"):
     from pyspark.sql import SparkSession
     from pyspark.sql.functions import col, when, hour, to_timestamp
-    from pyspark.ml.feature import StringIndexer, VectorAssembler
+    from pyspark.ml.feature import StringIndexer, VectorAssembler, StandardScaler
     from pyspark.ml.classification import LogisticRegression, RandomForestClassifier
     from pyspark.ml.evaluation import BinaryClassificationEvaluator, MulticlassClassificationEvaluator
 
