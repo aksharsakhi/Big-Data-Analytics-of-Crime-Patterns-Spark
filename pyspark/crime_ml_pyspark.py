@@ -1,3 +1,8 @@
+"""
+23CSE352: Big Data Analytics - Project Review 3
+Module: PySpark MLlib Predictive Modeling Pipeline
+Lead Contributor: Nishanth S Gowda
+"""
 import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
 #!/usr/bin/env python3
