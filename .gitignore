@@ -1,0 +1,28 @@
+# Virtual Environment
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# SBT / Scala build artifacts
+target/
+project/target/
+project/project/
+.bloop/
+.metals/
+
+# LaTeX / Preview temporaries
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.xdv
+*.fls
+*.fdb_latexmk
+presentation/preview/
+report/preview/
+
+# OS artifacts
+.DS_Store
