@@ -51,3 +51,11 @@
   - **Logistic Regression ($L_2$ Regularized):** Test Accuracy = 87.20%, ROC-AUC = 0.8256
   - **Random Forest (50 Trees, Depth 8):** **Test Accuracy = 90.50%**, **ROC-AUC = 0.8842**, Specificity = 97.60%
 - **Feature Importance:** Primary Crime Type (42.8%) and Location Description (23.5%) drive over 66% of arrest predictability.
+
+## 📈 Phase 3: Visual Analytics (2 Marks)
+- **Script:** `visualizations/generate_visualizations.py`
+- **Outputs:**
+  1. `fig1_district_crime_distribution.png`: Police district hotspot concentrations.
+  2. `fig2_crime_type_arrest_rate.png`: Primary offense volumes vs arrest clearance percentages.
+  3. `fig3_model_confusion_matrix_roc.png`: PySpark ML confusion matrix heatmap and ROC curve.
+  4. `fig4_feature_importance.png`: Random Forest Gini feature importance ranking.
