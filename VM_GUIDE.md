@@ -110,3 +110,9 @@ tectonic report/report.tex
   ```bash
   cd ~/Big-Data-Analytics-of-Crime-Patterns-Spark
   ```
+
+## ⚙️ Recommended Cluster Tuning Formulas
+For distributed production clusters:
+- **Number of Partitions:** $2 \times \text{Total Available Cores}$ (ensures full core utilization without scheduling overhead).
+- **Executor Cores:** 4--5 cores per executor (optimal I/O throughput avoiding garbage collection stalls).
+- **Driver Memory:** Minimum 2 GB for metadata tracking and small action collections.
