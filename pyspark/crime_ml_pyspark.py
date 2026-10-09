@@ -102,6 +102,13 @@ def run_pyspark_pipeline(csv_path="dataset/chicago_crimes_clean.csv", output_dir
         eval_rec = MulticlassClassificationEvaluator(labelCol="label", predictionCol="prediction", metricName="weightedRecall")
         eval_f1 = MulticlassClassificationEvaluator(labelCol="label", predictionCol="prediction", metricName="f1")
         eval_roc = BinaryClassificationEvaluator(labelCol="label", rawPredictionCol="rawPrediction", metricName="areaUnderROC")
+        # PR-AUC Evaluation for imbalanced dataset analysis
+        eval_pr = BinaryClassificationEvaluator(labelCol="label", rawPredictionCol="rawPrediction", metricName="areaUnderPR")
+        lr_pr = eval_pr.evaluate(lr_predictions)
+        rf_pr = eval_pr.evaluate(rf_predictions)
+        print(f"         Logistic Regression PR-AUC: {lr_pr:.4f}")
+        print(f"         Random Forest PR-AUC:        {rf_pr:.4f}")
+
 
         # Step 4: Model 1 - Logistic Regression
         print("\n[STEP 4] Training Model 1: Logistic Regression...")
