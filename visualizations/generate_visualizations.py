@@ -1,3 +1,4 @@
+# Visual Analytics Generator - Lead: Nishanth S Gowda <nsgxi43@gmail.com>
 # High DPI Configuration Enabled for Publication
 #!/usr/bin/env python3
 """
