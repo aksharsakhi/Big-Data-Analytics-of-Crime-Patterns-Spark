@@ -90,3 +90,23 @@ tectonic report/report.tex
 | **PySpark ML Model** | **3** | `pyspark/crime_ml_pyspark.py`: Feature engineering, train/test split, Logistic Regression vs Random Forest classifier, metrics (Accuracy, Precision, Recall, F1, ROC-AUC), Confusion matrix. |
 | **Visualization & Results** | **2** | `visualizations/generate_visualizations.py`: 4 publication-quality charts depicting district hotspots, crime type clearance rates, ROC curves/Confusion matrix, and feature importances. |
 | **Total** | **15/15** | **All criteria comprehensively met** |
+
+## 🔧 Troubleshooting & Common VM Errors FAQ
+
+### Q1: `java.lang.OutOfMemoryError: Java heap space`
+- **Cause:** Single-node VM default heap is capped at 512MB.
+- **Solution:** Pass `--driver-memory 2g` to `spark-submit` or `spark-shell`:
+  ```bash
+  spark-shell --driver-memory 2g -i src/main/scala/bigdata/spark_rdd_script.scala
+  ```
+
+### Q2: Port 4040 Already in Use (`BindException`)
+- **Cause:** Previous Spark session is still active in background.
+- **Solution:** Spark automatically increments to port 4041. You can access the Web UI at `http://localhost:4041`.
+
+### Q3: File Path `FileNotFoundException`
+- **Cause:** Running commands from a child directory instead of the project root.
+- **Solution:** Always run from project root:
+  ```bash
+  cd ~/Big-Data-Analytics-of-Crime-Patterns-Spark
+  ```
