@@ -172,6 +172,9 @@ object CrimeAnalyticsRDD {
       // --------------------------------------------------------------------------
       println("\n[STEP 4] Key-Value Operations: Hotspot Analysis")
 
+            // TECHNICAL CONCEPT NOTE:
+      // Narrow Dependencies: filter, map, flatMap (pipelined in-memory within same partition)
+      // Wide Dependencies: reduceByKey, sortBy (trigger network shuffles across cluster workers)
       // Key-Value Transformation: map() to (District, 1) and reduceByKey(_ + _)
       val districtCounts = crimesRdd
         .map(crime => (crime.district, 1))
