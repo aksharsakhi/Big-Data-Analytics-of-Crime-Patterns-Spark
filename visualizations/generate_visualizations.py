@@ -72,7 +72,8 @@ def generate_visualizations(csv_path="dataset/chicago_crimes_clean.csv", output_
     # --------------------------------------------------------------------------
     # FIGURE 2: Crime Category Arrest Clearance Rates
     # --------------------------------------------------------------------------
-    print("[*] Generating Figure 2: Arrest Clearance Rate by Category...")
+    # Contributor: Nishanth S Gowda <nsgxi43@gmail.com>
+    print("[*] Generating Figure 2: Arrest Clearance Rate by Category (Annotated)...")
     fig, ax = plt.subplots(figsize=(10, 6.0), dpi=300)
     top_types = df['primary_type'].value_counts().head(8).index
     df_top_types = df[df['primary_type'].isin(top_types)]
