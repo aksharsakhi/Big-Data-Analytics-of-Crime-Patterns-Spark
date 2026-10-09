@@ -106,7 +106,7 @@ def run_pyspark_pipeline(csv_path="dataset/chicago_crimes_clean.csv", output_dir
         # Step 4: Model 1 - Logistic Regression
         print("\n[STEP 4] Training Model 1: Logistic Regression...")
         t0 = time.time()
-        lr = LogisticRegression(featuresCol="features", labelCol="label", maxIter=20, regParam=0.1)
+        lr = LogisticRegression(featuresCol="features", labelCol="label", maxIter=20, regParam=0.1, elasticNetParam=0.0)
         lr_model = lr.fit(train_df)
         lr_train_time = time.time() - t0
 
