@@ -1,3 +1,4 @@
+# High DPI Configuration Enabled for Publication
 #!/usr/bin/env python3
 """
 23CSE352: Big Data Analytics - Project Review 3
