@@ -25,6 +25,12 @@ import os
 import json
 import time
 
+def extract_feature_importance_dict(rf_model, feature_names):
+    """Extract sorted dictionary of feature importances from trained Random Forest."""
+    importances = rf_model.featureImportances.toArray()
+    ranked = sorted(zip(feature_names, importances), key=lambda x: x[1], reverse=True)
+    return {name: round(float(imp), 4) for name, imp in ranked}
+
 def format_confusion_matrix(tn, fp, fn, tp):
     """Format confusion matrix into clean ASCII diagnostic display."""
     total = tn + fp + fn + tp
