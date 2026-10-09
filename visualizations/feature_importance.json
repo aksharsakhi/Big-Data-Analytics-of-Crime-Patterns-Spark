@@ -1,0 +1,14 @@
+{
+  "project": "Chicago Crime Analytics Review 3",
+  "algorithm": "Random Forest Classifier (50 Trees, Depth 8)",
+  "features": [
+    {"name": "Primary Crime Type", "importance": 0.4284, "percentage": "42.84%"},
+    {"name": "Location Description", "importance": 0.2351, "percentage": "23.51%"},
+    {"name": "Beat", "importance": 0.1123, "percentage": "11.23%"},
+    {"name": "District", "importance": 0.0894, "percentage": "8.94%"},
+    {"name": "Domestic Flag", "importance": 0.0612, "percentage": "6.12%"},
+    {"name": "Community Area", "importance": 0.0418, "percentage": "4.18%"},
+    {"name": "Ward", "importance": 0.0318, "percentage": "3.18%"}
+  ],
+  "cumulative_top2_percentage": "66.35%"
+}
