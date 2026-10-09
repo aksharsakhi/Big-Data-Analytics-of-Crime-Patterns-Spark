@@ -15,3 +15,20 @@
 ## 👥 Team Members & Leadership
 - **Sheela Akshar Sakhi**: Lead Distributed Data Engineer *(Scala + Spark RDD Pipeline, Partitions, DAG Lineage, In-Memory Caching)*
 - **Nishanth S Gowda**: Lead Machine Learning Engineer *(PySpark MLlib Pipeline, Logistic Regression, Random Forest, Visual Analytics)*
+
+## 📊 Dataset Description
+- **Source:** City of Chicago Open Data Portal (CPD CLEAR System)
+- **Scale:** 10,000 cleaned, authentic incident records with 22 attributes
+- **Target Variable:** `Arrest` (Boolean: `true` / `false`), transformed to binary numerical label (`1.0` vs `0.0`) for supervised classification.
+
+### Key Schema Attributes:
+| Attribute | Type | Description |
+| :--- | :--- | :--- |
+| `id` / `case_number` | String | Unique crime incident tracking keys |
+| `date` | Timestamp | Temporal occurrence timestamp |
+| `primary_type` | Categorical | Statutory offense category (THEFT, BATTERY, NARCOTICS) |
+| `location_description`| Categorical | Occurrence venue (STREET, RESIDENCE, SIDEWALK) |
+| `arrest` | Boolean | **Supervised Target Variable** (Apprehension achieved) |
+| `domestic` | Boolean | Domestic violence indicator |
+| `beat` / `district` | Integer | Police administrative patrol geographic zones |
+| `latitude` / `longitude` | Double | High-precision geospatial GPS coordinates |
