@@ -105,6 +105,9 @@ def run_pyspark_pipeline(csv_path="dataset/chicago_crimes_clean.csv", output_dir
         print(f"         -> Features assembled: {feature_cols}")
         print(f"         -> Label distribution: Arrested = {arrest_count:,} ({arrest_count/total_records*100:.2f}%), Open = {unapprehended_count:,}")
 
+        # Optimization: Cache indexed DataFrame in memory for fast iterative training
+        df_ml.cache()
+
         # Step 3: Train / Test Split (80 / 20)
         print("\n[STEP 3] Splitting Dataset into Training (80%) and Testing (20%) Sets...")
         train_df, test_df = df_ml.randomSplit([0.8, 0.2], seed=42)
@@ -117,13 +120,7 @@ def run_pyspark_pipeline(csv_path="dataset/chicago_crimes_clean.csv", output_dir
         eval_rec = MulticlassClassificationEvaluator(labelCol="label", predictionCol="prediction", metricName="weightedRecall")
         eval_f1 = MulticlassClassificationEvaluator(labelCol="label", predictionCol="prediction", metricName="f1")
         eval_roc = BinaryClassificationEvaluator(labelCol="label", rawPredictionCol="rawPrediction", metricName="areaUnderROC")
-        # PR-AUC Evaluation for imbalanced dataset analysis
         eval_pr = BinaryClassificationEvaluator(labelCol="label", rawPredictionCol="rawPrediction", metricName="areaUnderPR")
-        lr_pr = eval_pr.evaluate(lr_predictions)
-        rf_pr = eval_pr.evaluate(rf_predictions)
-        print(f"         Logistic Regression PR-AUC: {lr_pr:.4f}")
-        print(f"         Random Forest PR-AUC:        {rf_pr:.4f}")
-
 
         # Step 4: Model 1 - Logistic Regression
         print("\n[STEP 4] Training Model 1: Logistic Regression...")
@@ -138,6 +135,7 @@ def run_pyspark_pipeline(csv_path="dataset/chicago_crimes_clean.csv", output_dir
         lr_rec = eval_rec.evaluate(lr_preds)
         lr_f1 = eval_f1.evaluate(lr_preds)
         lr_roc = eval_roc.evaluate(lr_preds)
+        lr_pr = eval_pr.evaluate(lr_preds)
 
         print(f"         -> Training Time: {lr_train_time:.2f} seconds")
         print(f"         -> Accuracy     : {lr_acc*100:.2f}%")
@@ -145,6 +143,7 @@ def run_pyspark_pipeline(csv_path="dataset/chicago_crimes_clean.csv", output_dir
         print(f"         -> Recall       : {lr_rec*100:.2f}%")
         print(f"         -> F1-Score     : {lr_f1*100:.2f}%")
         print(f"         -> ROC-AUC      : {lr_roc:.4f}")
+        print(f"         -> PR-AUC       : {lr_pr:.4f}")
 
         # Step 5: Model 2 - Random Forest Classifier
         print("\n[STEP 5] Training Model 2: Random Forest Classifier...")
@@ -159,6 +158,7 @@ def run_pyspark_pipeline(csv_path="dataset/chicago_crimes_clean.csv", output_dir
         rf_rec = eval_rec.evaluate(rf_preds)
         rf_f1 = eval_f1.evaluate(rf_preds)
         rf_roc = eval_roc.evaluate(rf_preds)
+        rf_pr = eval_pr.evaluate(rf_preds)
 
         print(f"         -> Training Time: {rf_train_time:.2f} seconds")
         print(f"         -> Accuracy     : {rf_acc*100:.2f}%")
@@ -166,6 +166,7 @@ def run_pyspark_pipeline(csv_path="dataset/chicago_crimes_clean.csv", output_dir
         print(f"         -> Recall       : {rf_rec*100:.2f}%")
         print(f"         -> F1-Score     : {rf_f1*100:.2f}%")
         print(f"         -> ROC-AUC      : {rf_roc:.4f}")
+        print(f"         -> PR-AUC       : {rf_pr:.4f}")
 
         # Compute Confusion Matrix for Random Forest
         tp = rf_preds.filter((col("label") == 1.0) & (col("prediction") == 1.0)).count()
