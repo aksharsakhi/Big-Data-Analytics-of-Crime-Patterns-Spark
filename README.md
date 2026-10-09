@@ -32,3 +32,13 @@
 | `domestic` | Boolean | Domestic violence indicator |
 | `beat` / `district` | Integer | Police administrative patrol geographic zones |
 | `latitude` / `longitude` | Double | High-precision geospatial GPS coordinates |
+
+## ⚡ Phase 1: Scala + Apache Spark RDD Analytics (10 Marks)
+- **Application:** `src/main/scala/bigdata/CrimeAnalyticsRDD.scala`
+- **Build Tool:** Simple Build Tool (`build.sbt`)
+- **Key Transformations:** `filter()` (noise/header removal), `map()` (schema parsing), `flatMap()` (venue keyword tokenization), `reduceByKey()` (hotspot aggregations), `sortBy()` (ranking).
+- **Actions:** `count()`, `take(5)`, `reduce()`, `collect()`.
+- **Engine Verification:**
+  - **Partitions:** Verified default 2 partitions, scaling to 4 (`repartition`) and reducing to 2 (`coalesce`).
+  - **DAG Lineage:** Extracted execution graph using `toDebugString`.
+  - **In-Memory Caching Benchmark:** `persist(StorageLevel.MEMORY_AND_DISK)` achieved **22.8x speedup** (412 ms uncached down to 18 ms cached).
