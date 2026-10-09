@@ -127,7 +127,7 @@ def run_pyspark_pipeline(csv_path="dataset/chicago_crimes_clean.csv", output_dir
         # Step 5: Model 2 - Random Forest Classifier
         print("\n[STEP 5] Training Model 2: Random Forest Classifier...")
         t0 = time.time()
-        rf = RandomForestClassifier(featuresCol="features", labelCol="label", numTrees=50, maxDepth=8, seed=42)
+        rf = RandomForestClassifier(featuresCol="features", labelCol="label", numTrees=50, maxDepth=8, impurity='gini', seed=42)
         rf_model = rf.fit(train_df)
         rf_train_time = time.time() - t0
 
