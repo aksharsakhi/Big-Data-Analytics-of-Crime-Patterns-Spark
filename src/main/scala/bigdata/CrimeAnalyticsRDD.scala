@@ -1,5 +1,21 @@
 package bigdata
 
+/**
+ * 23CSE352: Big Data Analytics - Project Review 3
+ * Amrita Vishwa Vidyapeetham - Department of CSE
+ *
+ * Distributed Crime Pattern Analytics using Apache Spark Core (Scala RDD API).
+ * Demonstrates:
+ *   - RDD Ingestion (sc.textFile)
+ *   - Lazy Transformations (filter, map, flatMap, reduceByKey, sortBy)
+ *   - Terminal Actions (count, take, reduce, collect)
+ *   - Partition Management (repartition vs coalesce)
+ *   - DAG Lineage Graph Extraction (toDebugString)
+ *   - In-Memory Persistence & Caching Benchmarks
+ *
+ * @author Sheela Akshar Sakhi (Distributed Data Engineering Lead)
+ */
+
 import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.storage.StorageLevel
 
