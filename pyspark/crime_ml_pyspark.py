@@ -1,3 +1,5 @@
+import logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
 #!/usr/bin/env python3
 """
 23CSE352: Big Data Analytics - Project Review 3
