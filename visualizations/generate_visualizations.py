@@ -114,7 +114,7 @@ def generate_visualizations(csv_path="dataset/chicago_crimes_clean.csv", output_
 
     ax_roc.plot(fpr_rf, tpr_rf, color=MAROON, lw=2.5, label='Random Forest (AUC = 0.8842)')
     ax_roc.plot(fpr_lr, tpr_lr, color=NAVY, lw=2.0, linestyle='--', label='Logistic Regression (AUC = 0.8256)')
-    ax_roc.plot([0, 1], [0, 1], color='#94A3B8', lw=1.2, linestyle=':')
+    ax_roc.plot([0, 1], [0, 1], color='#94A3B8', lw=1.2, linestyle=':', label='Random Chance Baseline (AUC = 0.50)')
     ax_roc.set_xlim([0.0, 1.0])
     ax_roc.set_ylim([0.0, 1.05])
     ax_roc.set_xlabel('False Positive Rate', fontsize=10, fontweight='bold')
