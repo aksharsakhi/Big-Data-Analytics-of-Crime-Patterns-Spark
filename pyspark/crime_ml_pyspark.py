@@ -25,6 +25,15 @@ import os
 import json
 import time
 
+def format_confusion_matrix(tn, fp, fn, tp):
+    """Format confusion matrix into clean ASCII diagnostic display."""
+    total = tn + fp + fn + tp
+    accuracy = (tp + tn) / total
+    precision = tp / (tp + fp) if (tp + fp) > 0 else 0
+    recall = tp / (tp + fn) if (tp + fn) > 0 else 0
+    specificity = tn / (tn + fp) if (tn + fp) > 0 else 0
+    return f"Accuracy: {accuracy*100:.2f}% | Precision: {precision*100:.2f}% | Recall: {recall*100:.2f}% | Specificity: {specificity*100:.2f}%"
+
 def run_pyspark_pipeline(csv_path="dataset/chicago_crimes_clean.csv", output_dir="visualizations"):
     from pyspark.sql import SparkSession
     from pyspark.sql.functions import col, when, hour, to_timestamp
