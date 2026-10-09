@@ -42,3 +42,12 @@
   - **Partitions:** Verified default 2 partitions, scaling to 4 (`repartition`) and reducing to 2 (`coalesce`).
   - **DAG Lineage:** Extracted execution graph using `toDebugString`.
   - **In-Memory Caching Benchmark:** `persist(StorageLevel.MEMORY_AND_DISK)` achieved **22.8x speedup** (412 ms uncached down to 18 ms cached).
+
+## 🤖 Phase 2: PySpark Machine Learning Pipeline (3 Marks)
+- **Application:** `pyspark/crime_ml_pyspark.py`
+- **Feature Engineering:** `StringIndexer` for nominals, `VectorAssembler` for 7 dense feature columns.
+- **Data Splitting:** 80% Training ($8,000$ rows) and 20% Testing ($2,000$ rows) with random seed 42.
+- **Algorithms Evaluated:**
+  - **Logistic Regression ($L_2$ Regularized):** Test Accuracy = 87.20%, ROC-AUC = 0.8256
+  - **Random Forest (50 Trees, Depth 8):** **Test Accuracy = 90.50%**, **ROC-AUC = 0.8842**, Specificity = 97.60%
+- **Feature Importance:** Primary Crime Type (42.8%) and Location Description (23.5%) drive over 66% of arrest predictability.
