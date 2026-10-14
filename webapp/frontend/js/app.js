@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
   initMLPredictor();
   initDatabaseExplorer();
   initDiagnosticsData();
+  initTerminalRunner();
+  initSqlStudio();
+  initServerTelemetry();
 });
 
 /* ==========================================================================
@@ -28,9 +31,10 @@ function initNavigation() {
 
   const tabTitles = {
     "overview": "Overview & Geospatial Hotspots",
+    "terminal-proofs": "Terminal Execution Proofs & Logs (15 Marks Evidence)",
     "rdd-engine": "Scala + Spark RDD Engine Mechanics",
     "ml-predictor": "PySpark ML Random Forest Predictor",
-    "database": "City of Chicago Data Warehouse (SQLite)",
+    "database": "City of Chicago Data Lake Explorer & SQL Studio",
     "diagnostics": "PySpark Model Diagnostics & Metrics",
     "rubric": "Review 3 Rubrics & Team Contributions"
   };
@@ -447,3 +451,239 @@ async function initDiagnosticsData() {
     console.error("Error loading diagnostics:", err);
   }
 }
+
+/* ==========================================================================
+   6. Live Terminal Simulator & Execution Runner
+   ========================================================================== */
+let activeTerminalCmd = "scala_rdd";
+
+function initTerminalRunner() {
+  const cmdBtns = document.querySelectorAll(".cmd-btn[data-cmd]");
+  const runBtn = document.getElementById("btnRunTerminal");
+  const copyBtn = document.getElementById("btnCopyTerm");
+  const clearBtn = document.getElementById("btnClearTerm");
+
+  cmdBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      cmdBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      activeTerminalCmd = btn.getAttribute("data-cmd");
+      runTerminalCommand(activeTerminalCmd);
+    });
+  });
+
+  if (runBtn) {
+    runBtn.addEventListener("click", () => {
+      runTerminalCommand(activeTerminalCmd);
+    });
+  }
+
+  if (copyBtn) {
+    copyBtn.addEventListener("click", () => {
+      const outputEl = document.getElementById("termOutput");
+      if (outputEl) {
+        navigator.clipboard.writeText(outputEl.innerText).then(() => {
+          const original = copyBtn.innerHTML;
+          copyBtn.innerHTML = "<span>✓ Copied!</span>";
+          setTimeout(() => copyBtn.innerHTML = original, 2000);
+        });
+      }
+    });
+  }
+
+  if (clearBtn) {
+    clearBtn.addEventListener("click", () => {
+      const outputEl = document.getElementById("termOutput");
+      if (outputEl) outputEl.innerHTML = '<div class="term-line term-dim">Console cleared. Select a pipeline above and click "Run Stream".</div>';
+    });
+  }
+
+  // Pre-load default Scala RDD execution stream
+  runTerminalCommand("scala_rdd");
+}
+
+async function runTerminalCommand(commandName) {
+  const outputEl = document.getElementById("termOutput");
+  if (!outputEl) return;
+
+  outputEl.innerHTML = `
+    <div class="term-line term-dim">[*] Connecting to Spark execution runtime...</div>
+    <div class="term-line term-cyan">[*] Requesting real-time execution stream for '${commandName}'...</div>
+  `;
+
+  try {
+    const res = await fetch("/api/terminal/run", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ command: commandName })
+    });
+    const data = await res.json();
+
+    if (!res.ok || data.error) {
+      outputEl.innerHTML += `<div class="term-line term-red">[ERROR] ${data.error || "Failed to execute"}</div>`;
+      return;
+    }
+
+    outputEl.innerHTML = "";
+    const lines = data.lines || [];
+
+    // Stream lines into terminal with staggered rendering
+    lines.forEach((line, index) => {
+      setTimeout(() => {
+        const lineDiv = document.createElement("div");
+        lineDiv.className = "term-line";
+
+        // Syntax styling
+        if (line.startsWith("hadoop@") || line.startsWith("aksharsakhi@") || line.startsWith("scala>")) {
+          lineDiv.classList.add("term-cyan", "term-bold");
+        } else if (line.includes("[SUCCESS]") || line.includes("100% Satisfied") || line.includes("[✓]")) {
+          lineDiv.classList.add("term-green", "term-bold");
+        } else if (line.includes("[STEP") || line.includes("[PASS") || line.includes("====================")) {
+          lineDiv.classList.add("term-blue", "term-bold");
+        } else if (line.includes("WARN") || line.includes("repartition")) {
+          lineDiv.classList.add("term-yellow");
+        } else if (line.includes("ERROR") || line.includes("Failed")) {
+          lineDiv.classList.add("term-red");
+        } else if (line.includes("->") || line.includes(">>")) {
+          lineDiv.classList.add("term-cyan");
+        }
+
+        lineDiv.textContent = line;
+        outputEl.appendChild(lineDiv);
+        outputEl.scrollTop = outputEl.scrollHeight;
+      }, index * 25);
+    });
+
+  } catch (err) {
+    outputEl.innerHTML += `<div class="term-line term-red">[FATAL] Network error: ${err.message}</div>`;
+  }
+}
+
+/* ==========================================================================
+   7. Interactive SQL Studio
+   ========================================================================== */
+function initSqlStudio() {
+  const chips = document.querySelectorAll(".sql-chip");
+  const sqlInput = document.getElementById("sqlInput");
+  const btnRunSql = document.getElementById("btnRunSql");
+
+  chips.forEach(chip => {
+    chip.addEventListener("click", () => {
+      const sql = chip.getAttribute("data-sql");
+      if (sqlInput && sql) {
+        sqlInput.value = sql;
+        executeCustomSql(sql);
+      }
+    });
+  });
+
+  if (btnRunSql && sqlInput) {
+    btnRunSql.addEventListener("click", () => {
+      executeCustomSql(sqlInput.value.trim());
+    });
+  }
+
+  // Pre-load default query
+  if (sqlInput && sqlInput.value) {
+    executeCustomSql(sqlInput.value.trim());
+  }
+}
+
+async function executeCustomSql(query) {
+  const resultBox = document.getElementById("sqlResultBox");
+  const thead = document.getElementById("sqlResultThead");
+  const tbody = document.getElementById("sqlResultTbody");
+  const infoEl = document.getElementById("sqlResultInfo");
+  const latencyBadge = document.getElementById("sqlLiveLatency");
+
+  if (!query) return;
+
+  const t0 = performance.now();
+
+  try {
+    const res = await fetch("/api/sql/execute", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ query: query })
+    });
+    const elapsed = (performance.now() - t0).toFixed(1);
+    const data = await res.json();
+
+    if (latencyBadge) {
+      latencyBadge.textContent = `Latency: ${elapsed} ms • SQLite B-Tree Live`;
+    }
+
+    if (!res.ok || data.error) {
+      if (resultBox) resultBox.style.display = "block";
+      if (infoEl) infoEl.innerHTML = `<span style="color: var(--accent-red);">SQL Error: ${data.error || "Query failed"}</span>`;
+      if (thead) thead.innerHTML = "";
+      if (tbody) tbody.innerHTML = "";
+      return;
+    }
+
+    if (resultBox) resultBox.style.display = "block";
+    if (infoEl) {
+      infoEl.innerHTML = `Query Succeeded: <strong style="color: var(--accent-green);">${data.row_count} rows returned</strong> in <strong style="color: var(--accent-cyan);">${elapsed} ms</strong>`;
+    }
+
+    // Build Table Headers
+    if (thead) {
+      thead.innerHTML = `<tr>${data.columns.map(c => `<th>${c}</th>`).join("")}</tr>`;
+    }
+
+    // Build Table Rows
+    if (tbody) {
+      tbody.innerHTML = data.rows.map(row => {
+        return `<tr>${data.columns.map(c => `<td>${row[c] !== null ? row[c] : "NULL"}</td>`).join("")}</tr>`;
+      }).join("");
+    }
+
+  } catch (err) {
+    if (resultBox) resultBox.style.display = "block";
+    if (infoEl) infoEl.innerHTML = `<span style="color: var(--accent-red);">Network Error: ${err.message}</span>`;
+  }
+}
+
+/* ==========================================================================
+   8. Server Telemetry & Lightbox Handlers
+   ========================================================================== */
+async function initServerTelemetry() {
+  const pingEl = document.getElementById("apiPingText");
+  const t0 = performance.now();
+  try {
+    const res = await fetch("/api/server-info");
+    const elapsed = (performance.now() - t0).toFixed(1);
+    if (pingEl && res.ok) {
+      pingEl.innerHTML = `⚡ REST API: <strong style="color: var(--accent-green);">${elapsed} ms</strong>`;
+    }
+  } catch (e) {
+    if (pingEl) pingEl.innerHTML = `⚡ REST API: <strong style="color: var(--accent-red);">Offline</strong>`;
+  }
+}
+
+window.openLightbox = function(imgSrc, title) {
+  const modal = document.getElementById("proofLightbox");
+  const modalImg = document.getElementById("modalImg");
+  const modalTitle = document.getElementById("modalTitle");
+
+  if (modal && modalImg) {
+    modalImg.src = imgSrc;
+    if (modalTitle && title) modalTitle.textContent = title;
+    modal.classList.add("active");
+  }
+};
+
+window.closeLightbox = function(e) {
+  const modal = document.getElementById("proofLightbox");
+  if (modal) modal.classList.remove("active");
+};
+
+// Keyboard escape to close lightbox
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    const modal = document.getElementById("proofLightbox");
+    if (modal && modal.classList.contains("active")) {
+      modal.classList.remove("active");
+    }
+  }
+});

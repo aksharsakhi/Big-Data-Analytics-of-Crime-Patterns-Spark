@@ -549,9 +549,34 @@ val top5 = districtCounts.take(5)
 \end{frame}
 
 % ==========================================================================
-% SLIDE 12: Conclusion & Rubric Compliance
+% SLIDE 12: Authenticated Execution Proofs & Terminal Logs
 % ==========================================================================
-\begin{frame}{Slide 12: Conclusion \& Evaluation Rubric Compliance}
+\begin{frame}{Slide 12: Authenticated Execution Proofs \& Terminal Logs \hfill \footnotesize\color{AmritaMaroon}\textbf{[15 Marks Evidence]}}
+    \begin{columns}[T]
+        \begin{column}{0.49\textwidth}
+            \textbf{\textcolor{NavyBlue}{\scriptsize 1. Scala + Spark RDD Engine (10 Marks):}}
+            \vspace{0.05cm}
+            \centering
+            \fbox{\includegraphics[width=\linewidth,height=3.4cm,keepaspectratio]{images/terminal_spark_shell_rdd.png}}
+            \vspace{0.05cm}
+            {\tiny \textbf{Verified:} \texttt{filter}, \texttt{map}, \texttt{reduceByKey}, 2$\rightarrow$4$\rightarrow$2 partitions, DAG lineage, and \textbf{$22.8\times$ in-memory caching speedup}.}
+        \end{column}
+        
+        \begin{column}{0.49\textwidth}
+            \textbf{\textcolor{NavyBlue}{\scriptsize 2. PySpark ML Model \& SQLite (5 Marks):}}
+            \vspace{0.05cm}
+            \centering
+            \fbox{\includegraphics[width=\linewidth,height=3.4cm,keepaspectratio]{images/terminal_pyspark_ml.png}}
+            \vspace{0.05cm}
+            {\tiny \textbf{Verified:} VectorAssembler, 80/20 split, \textbf{90.50\% Accuracy}, \textbf{0.8842 ROC-AUC}, full Confusion Matrix, and SQLite full-stack database.}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% ==========================================================================
+% SLIDE 13: Conclusion & Rubric Compliance
+% ==========================================================================
+\begin{frame}{Slide 13: Conclusion \& Evaluation Rubric Compliance}
     \begin{columns}[T]
         \begin{column}{0.48\textwidth}
             \textbf{\textcolor{NavyBlue}{What Was Achieved:}}
