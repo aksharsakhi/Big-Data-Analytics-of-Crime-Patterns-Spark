@@ -261,10 +261,10 @@
         \begin{column}{0.50\textwidth}
             \centering
             {\scriptsize\textbf{\textcolor{NavyBlue}{Authenticated Terminal Proof 1: Transformations \& Cache}}}\par
-            \vspace{0.06cm}
-            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.35cm,keepaspectratio]{images/proof1_spark_rdd_transformations_cache.png}}}\par
+            \vspace{0.05cm}
+            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.25cm,keepaspectratio]{images/proof1_spark_rdd_transformations_cache.png}}}\par
             \vspace{0.04cm}
-            {\tiny \textbf{Empirical Terminal Verification:} Ingested 10,000 rows in \texttt{spark-shell}, verified \texttt{reduceByKey} and \texttt{flatMap}, and benchmarked \textbf{11.3$\times$ cache speedup (170ms $\to$ 15ms)}.\par}
+            {\fontsize{4.8}{5.8}\selectfont \textbf{What is displayed in this terminal:} Real \texttt{spark-shell} execution on macOS: ingests 10,000 CSV rows into 2 raw partitions; benchmarks \textbf{11.3$\times$ cache acceleration} (170\,ms uncached $\to$ 15\,ms cached); aggregates top hotspot districts via \texttt{reduceByKey} (012: 638, 011: 617, 006: 605); counts top crime categories (Theft: 1,930, Battery: 1,857); and tokenizes incident locations via \texttt{flatMap} (Street: 3,122, Apartment: 1,900).\par}
         \end{column}
     \end{columns}
 \end{frame}
@@ -302,10 +302,10 @@
         \begin{column}{0.50\textwidth}
             \centering
             {\scriptsize\textbf{\textcolor{NavyBlue}{Authenticated Terminal Proof 2: Partitions \& DAG Lineage}}}\par
-            \vspace{0.06cm}
-            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.35cm,keepaspectratio]{images/proof2_spark_rdd_partitions_dag.png}}}\par
+            \vspace{0.05cm}
+            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.25cm,keepaspectratio]{images/proof2_spark_rdd_partitions_dag.png}}}\par
             \vspace{0.04cm}
-            {\tiny \textbf{Empirical Terminal Verification:} Demonstrates partition scaling ($2 \to 4 \to 2$), prints complete \texttt{toDebugString} DAG lineage, and displays pipeline success banner.\par}
+            {\fontsize{4.8}{5.8}\selectfont \textbf{What is displayed in this terminal:} Real Spark terminal demonstrating partition management ($2 \to \text{repartition}(4) \to \text{coalesce}(2)$ with zero network shuffle); outputs complete DAG lineage tree via \texttt{toDebugString} with cached partition status (\textbf{1,871.3\,KiB} in RAM, 0\,B disk); displays pipeline success banner; and launches interactive Spark 3.5.8 REPL.\par}
         \end{column}
     \end{columns}
 \end{frame}
@@ -350,10 +350,10 @@
         \begin{column}{0.50\textwidth}
             \centering
             {\scriptsize\textbf{\textcolor{NavyBlue}{Authenticated Terminal Proof 3: PySpark Runtime Startup}}}\par
-            \vspace{0.06cm}
-            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.35cm,keepaspectratio]{images/proof3_pyspark_ml_startup.png}}}\par
+            \vspace{0.05cm}
+            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.25cm,keepaspectratio]{images/proof3_pyspark_ml_startup.png}}}\par
             \vspace{0.04cm}
-            {\tiny \textbf{Empirical Terminal Verification:} \texttt{spark-submit} launch on Apache Spark 3.5.8, Apple Silicon ARM64, and OpenJDK 17.0.20.1 initializing PySpark driver for ML handoff.\par}
+            {\fontsize{4.8}{5.8}\selectfont \textbf{What is displayed in this terminal:} Real macOS terminal launch of \texttt{spark-submit} running \texttt{crime\_ml\_pyspark.py}; logs Spark 3.5.8 startup on Apple Silicon ARM64 with OpenJDK 17; submits \texttt{ChicagoCrimeArrestPredictionML}; allocates 434.4\,MiB executor MemoryStore; and initializes SparkUI Web server on port 4040.\par}
         \end{column}
     \end{columns}
 \end{frame}
@@ -388,10 +388,10 @@
         \begin{column}{0.50\textwidth}
             \centering
             {\scriptsize\textbf{\textcolor{NavyBlue}{Authenticated Terminal Proof 4: Assembler \& Model Training}}}\par
-            \vspace{0.06cm}
-            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.35cm,keepaspectratio]{images/proof4_pyspark_ml_preprocessing_training.png}}}\par
+            \vspace{0.05cm}
+            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.25cm,keepaspectratio]{images/proof4_pyspark_ml_preprocessing_training.png}}}\par
             \vspace{0.04cm}
-            {\tiny \textbf{Empirical Terminal Verification:} Loads 10k DataFrame, constructs 7-feature VectorAssembler, performs 80/20 train/test split, and executes PySpark ML training.\par}
+            {\fontsize{4.8}{5.8}\selectfont \textbf{What is displayed in this terminal:} Real terminal output showing 10,000-row DataFrame load; 7-feature vector assembly; class imbalance distribution (1,537 arrests vs 8,463 open cases); 80/20 train/test split (8,079 train, 1,921 test); Logistic Regression training (0.91\,s, 84.90\% accuracy); and Random Forest broadcast tasks.\par}
         \end{column}
     \end{columns}
 \end{frame}
@@ -443,10 +443,10 @@
         \begin{column}{0.50\textwidth}
             \centering
             {\scriptsize\textbf{\textcolor{NavyBlue}{Authenticated Terminal Proof 5: Metrics \& Gini Importance}}}\par
-            \vspace{0.06cm}
-            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.35cm,keepaspectratio]{images/proof5_pyspark_ml_evaluation_metrics.png}}}\par
+            \vspace{0.05cm}
+            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.25cm,keepaspectratio]{images/proof5_pyspark_ml_evaluation_metrics.png}}}\par
             \vspace{0.04cm}
-            {\tiny \textbf{Empirical Terminal Verification:} Proves \textbf{88.65\% Accuracy}, \textbf{0.8223 ROC-AUC}, full 1,921-record test confusion matrix, and Gini feature ranking in terminal.\par}
+            {\fontsize{4.8}{5.8}\selectfont \textbf{What is displayed in this terminal:} Real terminal output proving Random Forest evaluation metrics (\textbf{88.65\% Accuracy}, \textbf{0.8223 ROC-AUC}, 86.24\% F1); ASCII test Confusion Matrix ($N=1,921$: 1,616 TN, 15 FP, 203 FN, 87 TP); Gini feature ranking led by Crime Type (73.1\%) and Location (13.0\%); and pipeline completion confirmation.\par}
         \end{column}
     \end{columns}
 \end{frame}
@@ -459,26 +459,26 @@
         \begin{column}{0.32\textwidth}
             \centering
             {\scriptsize\textbf{\textcolor{NavyBlue}{1. District Hotspots}}}\par
-            \vspace{0.05cm}
-            {\includegraphics[width=\linewidth,height=3.6cm,keepaspectratio]{images/fig1_district_crime_distribution.png}}\par
             \vspace{0.04cm}
-            {\tiny \textbf{Hotspot Analysis:} District 012 and 011 account for top crime concentrations.\par}
+            {\includegraphics[width=\linewidth,height=3.4cm,keepaspectratio]{images/fig1_district_crime_distribution.png}}\par
+            \vspace{0.03cm}
+            {\fontsize{4.8}{5.8}\selectfont \textbf{What is in this graph:} Bar chart of incident volumes across police districts, identifying District 012 (638) and 011 (617) as highest density hotspots.\par}
         \end{column}
         \begin{column}{0.32\textwidth}
             \centering
             {\scriptsize\textbf{\textcolor{NavyBlue}{2. Clearance Rates}}}\par
-            \vspace{0.05cm}
-            {\includegraphics[width=\linewidth,height=3.6cm,keepaspectratio]{images/fig2_crime_type_arrest_rate.png}}\par
             \vspace{0.04cm}
-            {\tiny \textbf{Arrest Clearance:} Narcotics shows high clearance; Theft remains heavily unapprehended.\par}
+            {\includegraphics[width=\linewidth,height=3.4cm,keepaspectratio]{images/fig2_crime_type_arrest_rate.png}}\par
+            \vspace{0.03cm}
+            {\fontsize{4.8}{5.8}\selectfont \textbf{What is in this graph:} Dual-axis chart comparing crime volumes vs arrest rates, proving Narcotics has high clearance while Theft remains low (9.3\%).\par}
         \end{column}
         \begin{column}{0.32\textwidth}
             \centering
             {\scriptsize\textbf{\textcolor{NavyBlue}{3. ML ROC \& Matrix}}}\par
-            \vspace{0.05cm}
-            {\includegraphics[width=\linewidth,height=3.6cm,keepaspectratio]{images/fig3_model_confusion_matrix_roc.png}}\par
             \vspace{0.04cm}
-            {\tiny \textbf{Model Validation:} Random Forest AUC of 0.822 proves reliable discriminative power.\par}
+            {\includegraphics[width=\linewidth,height=3.4cm,keepaspectratio]{images/fig3_model_confusion_matrix_roc.png}}\par
+            \vspace{0.03cm}
+            {\fontsize{4.8}{5.8}\selectfont \textbf{What is in this graph:} Random Forest test Confusion Matrix heatmap (1,616 TN, 87 TP) and ROC curve (0.8223 AUC) confirming strong discrimination.\par}
         \end{column}
     \end{columns}
 \end{frame}
@@ -508,10 +508,10 @@
         \begin{column}{0.50\textwidth}
             \centering
             {\scriptsize\textbf{\textcolor{NavyBlue}{Authenticated Terminal Proof 6: SQLite Warehouse Backend}}}\par
-            \vspace{0.06cm}
-            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.35cm,keepaspectratio]{images/proof6_sqlite_data_warehouse_backend.png}}}\par
+            \vspace{0.05cm}
+            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.25cm,keepaspectratio]{images/proof6_sqlite_data_warehouse_backend.png}}}\par
             \vspace{0.04cm}
-            {\tiny \textbf{Empirical Terminal Verification:} Direct terminal SQL query on \texttt{crime\_warehouse.db} verifying clearance rates in 0.8 ms, validating full-stack architecture.\par}
+            {\fontsize{4.8}{5.8}\selectfont \textbf{What is displayed in this terminal:} Real terminal execution of direct SQL query on \texttt{crime\_warehouse.db}: aggregates top 6 crime types, total incidents, arrest totals, and clearance rates (Theft: 1,930 cases, 9.3\% clearance; Battery: 1,857 cases, 16.3\% clearance), verifying sub-millisecond data warehouse querying.\par}
         \end{column}
     \end{columns}
 \end{frame}
@@ -570,19 +570,19 @@
         \begin{column}{0.49\textwidth}
             \centering
             {\scriptsize\textbf{\textcolor{NavyBlue}{1. RDD Ingestion, Transformations \& Cache}}}\par
-            \vspace{0.06cm}
-            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.4cm,keepaspectratio]{images/proof1_spark_rdd_transformations_cache.png}}}\par
+            \vspace{0.05cm}
+            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.25cm,keepaspectratio]{images/proof1_spark_rdd_transformations_cache.png}}}\par
             \vspace{0.04cm}
-            {\tiny \texttt{spark-shell}, 10k lines, \texttt{reduceByKey}, \texttt{flatMap}, 11.3$\times$ cache speedup.\par}
+            {\fontsize{4.8}{5.8}\selectfont \textbf{What is in this terminal:} \texttt{spark-shell} loading 10,000 CSV rows (2 raw partitions); benchmarks \textbf{11.3$\times$ cache speedup} (170ms $\to$ 15ms); aggregates hotspot districts via \texttt{reduceByKey} (012: 638, 011: 617, 006: 605); counts top crime types (Theft: 1,930, Battery: 1,857); and extracts scene keywords via \texttt{flatMap} (Street: 3,122, Apt: 1,900).\par}
         \end{column}
         
         \begin{column}{0.49\textwidth}
             \centering
             {\scriptsize\textbf{\textcolor{NavyBlue}{2. Partition Management (2$\to$4$\to$2) \& DAG}}}\par
-            \vspace{0.06cm}
-            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.4cm,keepaspectratio]{images/proof2_spark_rdd_partitions_dag.png}}}\par
+            \vspace{0.05cm}
+            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.25cm,keepaspectratio]{images/proof2_spark_rdd_partitions_dag.png}}}\par
             \vspace{0.04cm}
-            {\tiny \texttt{repartition(4)}, \texttt{coalesce(2)}, \texttt{toDebugString} DAG, success banner.\par}
+            {\fontsize{4.8}{5.8}\selectfont \textbf{What is in this terminal:} Terminal demonstrates partition elasticity ($2 \to \text{repartition}(4) \to \text{coalesce}(2)$ with zero network shuffle); prints complete \texttt{toDebugString} DAG lineage tree confirming \textbf{1,871.3 KiB} in RAM (0 B on disk); displays pipeline success banner; and launches Spark 3.5.8 REPL.\par}
         \end{column}
     \end{columns}
 \end{frame}
@@ -592,19 +592,19 @@
         \begin{column}{0.49\textwidth}
             \centering
             {\scriptsize\textbf{\textcolor{NavyBlue}{3. PySpark Runtime \& Driver Startup}}}\par
-            \vspace{0.06cm}
-            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.4cm,keepaspectratio]{images/proof3_pyspark_ml_startup.png}}}\par
+            \vspace{0.05cm}
+            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.25cm,keepaspectratio]{images/proof3_pyspark_ml_startup.png}}}\par
             \vspace{0.04cm}
-            {\tiny \texttt{spark-submit}, Spark 3.5.8 on macOS ARM64, OpenJDK 17.0.20.1, driver init.\par}
+            {\fontsize{4.8}{5.8}\selectfont \textbf{What is in this terminal:} Terminal execution of \texttt{spark-submit} for \texttt{crime\_ml\_pyspark.py} on macOS ARM64 with OpenJDK 17; registers \texttt{ChicagoCrimeArrestPredictionML}; allocates 434.4\,MiB executor MemoryStore; and launches SparkUI Web server on port 4040.\par}
         \end{column}
         
         \begin{column}{0.49\textwidth}
             \centering
             {\scriptsize\textbf{\textcolor{NavyBlue}{4. VectorAssembler \& Model Training}}}\par
-            \vspace{0.06cm}
-            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.4cm,keepaspectratio]{images/proof4_pyspark_ml_preprocessing_training.png}}}\par
+            \vspace{0.05cm}
+            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.25cm,keepaspectratio]{images/proof4_pyspark_ml_preprocessing_training.png}}}\par
             \vspace{0.04cm}
-            {\tiny 10k DataFrame, 7-attribute \texttt{VectorAssembler}, 80/20 train/test split, model training.\par}
+            {\fontsize{4.8}{5.8}\selectfont \textbf{What is in this terminal:} Logs 10k DataFrame load; 7-feature \texttt{VectorAssembler} pipeline; class distribution (1,537 arrests vs 8,463 open cases); 80/20 train/test split (8,079 train, 1,921 test); Logistic Regression training (0.91s, 84.90\% Acc); and Random Forest DAG task broadcasts.\par}
         \end{column}
     \end{columns}
 \end{frame}
@@ -614,19 +614,19 @@
         \begin{column}{0.49\textwidth}
             \centering
             {\scriptsize\textbf{\textcolor{NavyBlue}{5. Random Forest Evaluation \& Gini Importance}}}\par
-            \vspace{0.06cm}
-            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.4cm,keepaspectratio]{images/proof5_pyspark_ml_evaluation_metrics.png}}}\par
+            \vspace{0.05cm}
+            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.25cm,keepaspectratio]{images/proof5_pyspark_ml_evaluation_metrics.png}}}\par
             \vspace{0.04cm}
-            {\tiny \textbf{88.65\% Accuracy}, \textbf{0.8223 ROC-AUC}, 1,921-record Confusion Matrix, Gini ranking.\par}
+            {\fontsize{4.8}{5.8}\selectfont \textbf{What is in this terminal:} Terminal output proving Random Forest evaluation metrics (\textbf{88.65\% Accuracy}, \textbf{0.8223 ROC-AUC}, 86.24\% F1); ASCII test Confusion Matrix ($N=1,921$: 1,616 TN, 15 FP, 203 FN, 87 TP); Gini feature ranking led by Crime Type (73.1\%) and Location (13.0\%); and pipeline completion confirmation.\par}
         \end{column}
         
         \begin{column}{0.49\textwidth}
             \centering
             {\scriptsize\textbf{\textcolor{NavyBlue}{6. Full-Stack SQLite Warehouse Terminal Query}}}\par
-            \vspace{0.06cm}
-            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.4cm,keepaspectratio]{images/proof6_sqlite_data_warehouse_backend.png}}}\par
+            \vspace{0.05cm}
+            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.25cm,keepaspectratio]{images/proof6_sqlite_data_warehouse_backend.png}}}\par
             \vspace{0.04cm}
-            {\tiny Terminal query on \texttt{crime\_warehouse.db} returning clearance rates in 0.8 ms.\par}
+            {\fontsize{4.8}{5.8}\selectfont \textbf{What is in this terminal:} Real terminal execution of direct SQL query on \texttt{crime\_warehouse.db}: aggregates top 6 crime types, total incidents, arrest totals, and clearance rates (Theft: 1,930 cases, 9.3\% clearance; Battery: 1,857 cases, 16.3\% clearance), verifying sub-millisecond data warehouse querying.\par}
         \end{column}
     \end{columns}
 \end{frame}
