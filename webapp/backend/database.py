@@ -153,9 +153,67 @@ def get_kpis():
         "clearance_rate_pct": clearance_rate,
         "police_districts": districts,
         "crime_categories": crime_types,
-        "spark_cache_speedup": "22.8x",
-        "model_accuracy_pct": 90.50,
-        "model_roc_auc": 0.8842
+        "spark_cache_speedup": "11.3x - 22.8x",
+        "model_accuracy_pct": 88.65,
+        "model_roc_auc": 0.8223
+    }
+
+def get_hourly_distribution():
+    """Extracts hourly crime patterns from authentic 10,000 incident timestamps."""
+    conn = get_connection()
+    c = conn.cursor()
+    c.execute("""
+        SELECT substr(date, 12, 2) as hour, 
+               count(*) as total, 
+               sum(arrest) as arrests,
+               round(avg(arrest) * 100, 1) as clearance_rate
+        FROM crimes 
+        WHERE hour != '' AND hour IS NOT NULL
+        GROUP BY hour 
+        ORDER BY hour ASC
+    """)
+    rows = [dict(r) for r in c.fetchall()]
+    conn.close()
+    return rows
+
+def get_location_distribution(limit=15):
+    """Returns top crime scene location types with clearance rates."""
+    conn = get_connection()
+    c = conn.cursor()
+    c.execute("""
+        SELECT location_description, 
+               count(*) as total, 
+               sum(arrest) as arrests,
+               round(avg(arrest) * 100, 1) as clearance_rate
+        FROM crimes 
+        WHERE location_description != '' AND location_description IS NOT NULL
+        GROUP BY location_description 
+        ORDER BY total DESC 
+        LIMIT ?
+    """, (limit,))
+    rows = [dict(r) for r in c.fetchall()]
+    conn.close()
+    return rows
+
+def get_dropdown_options():
+    """Returns distinct options for front-end filter and prediction dropdowns."""
+    conn = get_connection()
+    c = conn.cursor()
+    
+    c.execute("SELECT DISTINCT primary_type, count(*) as count, round(avg(arrest)*100, 1) as rate FROM crimes GROUP BY primary_type ORDER BY primary_type ASC")
+    types = [dict(r) for r in c.fetchall()]
+    
+    c.execute("SELECT DISTINCT district, count(*) as count FROM crimes WHERE district != '000' AND district != '' GROUP BY district ORDER BY district ASC")
+    districts = [dict(r) for r in c.fetchall()]
+    
+    c.execute("SELECT location_description, count(*) as count FROM crimes GROUP BY location_description ORDER BY count DESC LIMIT 30")
+    locations = [dict(r) for r in c.fetchall()]
+    
+    conn.close()
+    return {
+        "crime_types": types,
+        "districts": districts,
+        "locations": locations
     }
 
 def get_district_hotspots(limit=10):
