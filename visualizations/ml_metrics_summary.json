@@ -1,0 +1,36 @@
+{
+    "total_records": 10000,
+    "train_count": 8079,
+    "test_count": 1921,
+    "logistic_regression": {
+        "accuracy": 0.849,
+        "precision": 0.7209,
+        "recall": 0.849,
+        "f1_score": 0.7797,
+        "roc_auc": 0.6319,
+        "training_time_sec": 0.91
+    },
+    "random_forest": {
+        "accuracy": 0.8865,
+        "precision": 0.883,
+        "recall": 0.8865,
+        "f1_score": 0.8624,
+        "roc_auc": 0.8223,
+        "training_time_sec": 2.05,
+        "confusion_matrix": {
+            "tn": 1616,
+            "fp": 15,
+            "fn": 203,
+            "tp": 87
+        },
+        "feature_importance": {
+            "primary_type_idx": 0.7313554150790536,
+            "location_desc_idx": 0.13009057766101298,
+            "domestic_num": 0.018430869797914112,
+            "beat_num": 0.04615885721691463,
+            "district_num": 0.016566356442893497,
+            "ward_num": 0.025800021106659847,
+            "comm_area_num": 0.03159790269555145
+        }
+    }
+}

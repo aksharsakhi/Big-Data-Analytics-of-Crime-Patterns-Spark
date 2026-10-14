@@ -292,9 +292,9 @@
             </div>
           </div>
 
-          <!-- Card 2: PySpark ML -->
+          <!-- Card 2: PySpark ML Ingestion & Training -->
           <div class="proof-card">
-            <div class="proof-thumb-wrapper" onclick="openLightbox('assets/screenshots/terminal_pyspark_ml.png', 'PySpark ML Model Pipeline & Evaluation (3 Marks Evidence)')">
+            <div class="proof-thumb-wrapper" onclick="openLightbox('assets/screenshots/terminal_pyspark_ml.png', 'PySpark ML Model Pipeline & Ingestion (3 Marks Evidence)')">
               <img src="assets/screenshots/terminal_pyspark_ml.png" alt="PySpark ML Pipeline Proof" loading="lazy">
               <div class="proof-overlay">
                 <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
@@ -303,19 +303,19 @@
             </div>
             <div class="proof-info">
               <div class="proof-header-row">
-                <span class="proof-title">2. PySpark ML Model Pipeline & Evaluation</span>
+                <span class="proof-title">2. PySpark ML Model Pipeline & Training</span>
                 <span class="badge success">3 Marks Rubric</span>
               </div>
               <p class="proof-desc">
-                Verifies ML feature engineering (<code>StringIndexer</code>, <code>VectorAssembler</code>), 80/20 train/test split, Random Forest 50-tree training (<strong>90.50% Accuracy, 0.8842 ROC-AUC</strong>), and full Confusion Matrix.
+                Verifies Spark DataFrame ingestion of 10,000 records, feature indexers, <code>VectorAssembler</code> pipeline, 80/20 train/test split (8,079 train / 1,921 test), and model training.
               </p>
             </div>
           </div>
 
-          <!-- Card 3: Cache Benchmark -->
+          <!-- Card 3: Model Evaluation & Confusion Matrix -->
           <div class="proof-card">
-            <div class="proof-thumb-wrapper" onclick="openLightbox('assets/screenshots/terminal_dag_caching_proof.png', 'Spark In-Memory Cache Benchmark (22.8x Speedup)')">
-              <img src="assets/screenshots/terminal_dag_caching_proof.png" alt="In-Memory Cache Benchmark Proof" loading="lazy">
+            <div class="proof-thumb-wrapper" onclick="openLightbox('assets/screenshots/terminal_dag_caching_proof.png', 'PySpark Model Evaluation, Confusion Matrix & Feature Importance')">
+              <img src="assets/screenshots/terminal_dag_caching_proof.png" alt="PySpark Model Evaluation Proof" loading="lazy">
               <div class="proof-overlay">
                 <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
                 <span>Click to Enlarge</span>
@@ -323,11 +323,11 @@
             </div>
             <div class="proof-info">
               <div class="proof-header-row">
-                <span class="proof-title">3. In-Memory Caching & Lineage Benchmark</span>
-                <span class="badge cyan">22.8× Speedup</span>
+                <span class="proof-title">3. Model Evaluation & Confusion Matrix</span>
+                <span class="badge cyan">88.65% Accuracy</span>
               </div>
               <p class="proof-desc">
-                Verifies <code>StorageLevel.MEMORY_AND_DISK</code> acceleration: First cold disk action takes <strong>412 ms</strong> vs second hot RAM action in <strong>18 ms</strong> (22.88× acceleration) with zero disk reads.
+                Verifies Random Forest test evaluation: <strong>88.65% Accuracy</strong>, <strong>0.8223 ROC-AUC</strong>, full confusion matrix (TN: 1,616, FP: 15, FN: 203, TP: 87), and Gini feature importance ranking.
               </p>
             </div>
           </div>
@@ -343,11 +343,11 @@
             </div>
             <div class="proof-info">
               <div class="proof-header-row">
-                <span class="proof-title">4. SQLite 3 Warehouse & Full-Stack Server</span>
+                <span class="proof-title">4. SQLite 3 Warehouse & Terminal Query Proof</span>
                 <span class="badge yellow">Full-Stack Bonus</span>
               </div>
               <p class="proof-desc">
-                Verifies authentic 10,000 municipal records loaded into <code>webapp/crime_warehouse.db</code> with B-Tree indexes, live REST API server, and sub-millisecond query execution latency.
+                Verifies authentic 10,000 municipal records loaded into <code>webapp/crime_warehouse.db</code> with B-Tree indexes, live query execution, and crime clearance rate analysis.
               </p>
             </div>
           </div>
