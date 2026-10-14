@@ -88,10 +88,11 @@
 \title{Big Data Analytics of Crime Patterns}
 \subtitle{Project Review 3: Distributed In-Memory Processing \& Machine Learning using Apache Spark}
 \author{%
-  \textbf{Team Members \& Individual Contributions:}\\[0.12cm]
+  \textbf{Team Members \& Individual Specializations:}\\[0.12cm]
   \begin{tabular}{cc}
     \textbf{Sheela Akshar Sakhi} & \textbf{Nishanth S Gowda} \\
-    {\scriptsize Lead: Scala + Spark RDD Analytics \& Persistence} & {\scriptsize Lead: PySpark ML Pipeline \& Visual Analytics}
+    \texttt{CB.SC.U4CSE23547} & \texttt{CB.SC.U4CSE23538} \\[0.04cm]
+    {\scriptsize Lead: Scala + Spark RDD Analytics (10 Marks)} & {\scriptsize Lead: PySpark ML \& Visuals (5 Marks)}
   \end{tabular}%
 }
 \institute{Course: \textbf{23CSE352 -- Big Data Analytics} \\ Department of Computer Science and Engineering \\ Amrita Vishwa Vidyapeetham}
@@ -548,48 +549,45 @@ val top5 = districtCounts.take(5)
 \end{frame}
 
 % ==========================================================================
-% SLIDE 12: Individual Contribution Matrix & Rubric Compliance
+% SLIDE 12: Conclusion & Rubric Compliance
 % ==========================================================================
-\begin{frame}{Slide 12: Individual Contribution Matrix \& Rubric Compliance}
+\begin{frame}{Slide 12: Conclusion \& Evaluation Rubric Compliance}
     \begin{columns}[T]
         \begin{column}{0.48\textwidth}
-            \textbf{\textcolor{NavyBlue}{Sheela Akshar Sakhi}} \\
-            \textcolor{AmritaMaroon}{\textbf{\scriptsize Lead: Scala + Spark RDD Analytics (10 Marks Rubric)}}
-            \vspace{0.06cm}
+            \textbf{\textcolor{NavyBlue}{What Was Achieved:}}
+            \vspace{0.04cm}
             \begin{itemize}\tiny
                 \setlength{\itemsep}{2pt}
-                \item \textbf{Architecture \& Setup:} Configured SBT build (\texttt{build.sbt}), SparkContext runtime, and data ingestion pipeline.
-                \item \textbf{RDD Transformations:} Implemented \texttt{filter()} for data cleansing, \texttt{map()} for schema mapping, \texttt{flatMap()} for forensic tokenization, and \texttt{reduceByKey()} for hotspot ranking.
-                \item \textbf{RDD Actions:} Validated pipeline execution via \texttt{count()}, \texttt{take(5)}, and aggregated \texttt{reduce()} / \texttt{collect()} actions.
-                \item \textbf{Core Concepts Execution:} Evaluated partition repartitioning (\texttt{repartition}/\texttt{coalesce}), inspected DAG lineage stages (\texttt{toDebugString}), and proved \textbf{$22.8\times$ in-memory caching acceleration}.
+                \item \textbf{In-Memory Acceleration:} Processed 10,000+ authentic municipal crime records; proved \textbf{$22.8\times$ caching speedup} over disk access.
+                \item \textbf{Complete RDD Lifecycle:} Verified transformations (\texttt{filter}, \texttt{map}, \texttt{flatMap}), key-value operations (\texttt{reduceByKey}), partitions, and DAG lineage graph.
+                \item \textbf{Supervised ML Classification:} PySpark Random Forest achieved \textbf{90.50\% Accuracy} and \textbf{0.8842 ROC-AUC} for arrest prediction.
+                \item \textbf{Actionable Visual Analytics:} Generated 4 publication-quality figures uncovering district hotspots and offense clearance rates.
             \end{itemize}
         \end{column}
         \begin{column}{0.48\textwidth}
-            \textbf{\textcolor{NavyBlue}{Nishanth S Gowda}} \\
-            \textcolor{AmritaMaroon}{\textbf{\scriptsize Lead: PySpark Machine Learning \& Visuals (5 Marks Rubric)}}
-            \vspace{0.06cm}
+            \textbf{\textcolor{NavyBlue}{Future Enhancements:}}
+            \vspace{0.04cm}
             \begin{itemize}\tiny
                 \setlength{\itemsep}{2pt}
-                \item \textbf{PySpark MLlib Pipeline:} Designed 7-attribute feature vectorization using \texttt{StringIndexer} and \texttt{VectorAssembler} (\texttt{crime\_ml\_pyspark.py}).
-                \item \textbf{Predictive Modeling:} Implemented $L_2$-regularized Logistic Regression and 50-tree Random Forest classifier for binary \texttt{Arrest} prediction.
-                \item \textbf{Rigorous Evaluation:} Computed test metrics: \textbf{90.50\% Accuracy}, \textbf{0.8842 ROC-AUC}, 89.6\% F1-Score, and extracted feature importance weights.
-                \item \textbf{Visual Analytics:} Engineered automated publication-grade plotting suite (\texttt{generate\_visualizations.py}) producing all 4 analytical presentation figures.
+                \item \textbf{Real-Time Streaming:} Integrating Apache Kafka with \textbf{Spark Structured Streaming} for sub-second live 911 dispatch tracking.
+                \item \textbf{Geospatial Clustering:} Deploying \textbf{Apache Sedona (GeoSpark)} for dynamic polygon geofencing and patrol zone boundary optimization.
+                \item \textbf{Deep Learning Expansion:} Training spatio-temporal Graph Neural Networks (GNNs) across distributed executors for crime series detection.
             \end{itemize}
         \end{column}
     \end{columns}
-    \vspace{0.18cm}
+    \vspace{0.14cm}
     \begin{center}
-    {\fontsize{6.2}{7.5}\selectfont
+    {\fontsize{6.0}{7.2}\selectfont
     \renewcommand{\arraystretch}{1.1}
     \begin{tabular}{|l|c|l|l|}
         \hline
-        \textbf{Evaluation Rubric Criteria} & \textbf{Weight} & \textbf{Primary Contributor} & \textbf{Status} \\
+        \textbf{Evaluation Rubric Criteria} & \textbf{Marks} & \textbf{Lead Contributor} & \textbf{Implementation Evidence} \\
         \hline
-        Scala + Spark RDD Processing \& Architecture & 10 Marks & Sheela Akshar Sakhi & Fully Implemented \& Benchmarked \\
-        PySpark Machine Learning Model & 3 Marks & Nishanth S Gowda & Implemented (90.5\% Acc, 0.884 AUC) \\
-        Data Visualization \& Real-World Results & 2 Marks & Nishanth S Gowda & 4 Publication Plots \& Analytics \\
+        Scala + Spark RDD Processing \& Concepts & 10 & Sheela Akshar Sakhi & RDDs, transformations, actions, DAG, $22.8\times$ cache \\
+        PySpark Machine Learning Model & 3 & Nishanth S Gowda & Feature vectorization, RF model, 90.5\% Acc, 0.884 AUC \\
+        Data Visualization \& Real-World Results & 2 & Nishanth S Gowda & 4 publication-grade figures, hotspot analytics \\
         \hline
-        \multicolumn{4}{|c|}{\textbf{Total Review 3 Marks: 15 / 15 Marks Fully Completed and Demonstrated}} \\
+        \multicolumn{4}{|c|}{\textbf{All Project Review 3 Rubric Criteria Fully Satisfied}} \\
         \hline
     \end{tabular}
     }
