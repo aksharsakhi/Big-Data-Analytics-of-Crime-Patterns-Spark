@@ -56,6 +56,18 @@ println("\n[Location Keywords (flatMap + reduceByKey)]")
 val locKeywords = parsedRdd.flatMap(c => c.location.split("[\\s,/]+")).filter(_.length > 2).map((_, 1)).reduceByKey(_ + _).sortBy(_._2, ascending = false)
 locKeywords.take(5).foreach { case (w, count) => println(f"   Keyword '$w%-12s' : $count%5d") }
 
+// Spark Concepts: Partitions (Wide vs Narrow)
+println("\n[Partition Management & Concurrency]")
+println(s"-> Initial Partition Count         : ${parsedRdd.getNumPartitions} partitions")
+val repartitioned = parsedRdd.repartition(4)
+println(s"-> repartition(4) [Wide Shuffle]   : ${repartitioned.getNumPartitions} partitions")
+val coalesced = repartitioned.coalesce(2)
+println(s"-> coalesce(2)    [Narrow Merge]   : ${coalesced.getNumPartitions} partitions (Zero Network I/O)")
+
+// Spark Concepts: DAG Lineage
 println("\n[RDD Lineage & DAG (toDebugString)]")
 println(districtCounts.toDebugString)
-println("\n[SUCCESS] Interactive RDD execution complete!")
+
+println("\n========================================================")
+println(" [SUCCESS] Scala + Spark RDD Pipeline (10 Marks) Complete!")
+println("========================================================\n")
