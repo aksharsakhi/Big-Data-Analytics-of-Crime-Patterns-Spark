@@ -40,7 +40,7 @@ function initNavigation() {
 
   const tabTitles = {
     "overview": "Overview & Geospatial Hotspots",
-    "terminal-proofs": "Terminal Execution Proofs & Logs (15 Marks Evidence)",
+    "terminal-proofs": "Terminal Execution Proofs & Logs",
     "rdd-engine": "Scala + Spark RDD Engine Mechanics",
     "ml-predictor": "PySpark ML Random Forest Predictor",
     "database": "City of Chicago Data Lake Explorer & SQL Studio",

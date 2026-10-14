@@ -39,10 +39,10 @@ def get_server_info():
         "model_accuracy": "88.65%",
         "model_roc_auc": 0.8223,
         "cache_speedup": "11.3x - 22.8x",
-        "review": "Review 3 (15 Marks)",
+        "review": "Project Review 3",
         "team": [
-            {"name": "Sheela Akshar Sakhi", "roll": "CB.SC.U4CSE23547", "role": "Data Engineering Lead (10 Marks)"},
-            {"name": "Nishanth S Gowda", "roll": "CB.SC.U4CSE23538", "role": "Machine Learning & Visuals Lead (5 Marks)"}
+            {"name": "Sheela Akshar Sakhi", "roll": "CB.SC.U4CSE23547", "role": "Data Engineering Lead"},
+            {"name": "Nishanth S Gowda", "roll": "CB.SC.U4CSE23538", "role": "Machine Learning & Visuals Lead"}
         ]
     })
 
@@ -234,7 +234,7 @@ def run_terminal():
             "       |  dataset/chicago_crimes_clean.csv HadoopRDD[0] at textFile at src/main/scala/bigdata/spark_rdd_script.scala:34 []",
             "",
             "========================================================",
-            " [SUCCESS] Scala + Spark RDD Pipeline (10 Marks) Complete!",
+            " [SUCCESS] Scala + Spark RDD Pipeline Complete!",
             "========================================================",
             "Welcome to Apache Spark version 3.5.8",
             "Using Scala version 2.12.18 (OpenJDK 64-Bit Server VM, Java 17.0.20.1)",

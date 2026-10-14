@@ -69,5 +69,5 @@ println("\n[RDD Lineage & DAG (toDebugString)]")
 println(districtCounts.toDebugString)
 
 println("\n========================================================")
-println(" [SUCCESS] Scala + Spark RDD Pipeline (10 Marks) Complete!")
+println(" [SUCCESS] Scala + Spark RDD Pipeline Complete!")
 println("========================================================\n")

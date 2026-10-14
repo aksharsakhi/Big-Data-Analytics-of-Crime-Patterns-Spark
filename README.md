@@ -6,7 +6,7 @@
   <img src="https://img.shields.io/badge/Python-3.11%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
   <img src="https://img.shields.io/badge/PySpark-MLlib-113285?style=for-the-badge" alt="PySpark MLlib" />
   <img src="https://img.shields.io/badge/Course-23CSE352-800000?style=for-the-badge" alt="Amrita CSE" />
-  <img src="https://img.shields.io/badge/Review-Review%203%20(15%20Marks)-047857?style=for-the-badge" alt="Review 3" />
+  <img src="https://img.shields.io/badge/Review-Review%203-047857?style=for-the-badge" alt="Review 3" />
 </p>
 
 ---
@@ -14,19 +14,19 @@
 ## 📌 Academic Course Context
 - **Course:** **23CSE352 -- Big Data Analytics**
 - **Institution:** Department of Computer Science & Engineering, Amrita Vishwa Vidyapeetham
-- **Evaluation:** **Project Review 3 (15 Marks Total)**
-  - Scala + Spark Core RDD Implementation & Architecture Concepts: **10 Marks**
-  - PySpark Machine Learning Predictive Modeling: **3 Marks**
-  - Visual Analytics & Real-World Policing Results: **2 Marks**
+- **Evaluation:** **Project Review 3 Deliverable**
+  - Scala + Spark Core RDD Implementation & Architecture Concepts
+  - PySpark Machine Learning Predictive Modeling
+  - Visual Analytics & Real-World Policing Results
 
 ---
 
 ## 👥 Team Members & Leadership Matrix
 
-| Student Name | Review 3 Engineering Role | Rubric Ownership | Core Technical Deliverables |
+| Student Name | Review 3 Engineering Role | Focus Area | Core Technical Deliverables |
 | :--- | :--- | :---: | :--- |
-| **Sheela Akshar Sakhi** | **Distributed Data Engineering Lead** | **10 Marks** | • Scala + Spark RDD Engine (`CrimeAnalyticsRDD.scala`)<br>• Transformations (`filter`, `map`, `flatMap`, `reduceByKey`, `sortBy`)<br>• Actions (`count`, `take`, `reduce`, `collect`)<br>• Partition Rebalancing (`repartition` vs `coalesce`)<br>• DAG Lineage (`toDebugString`) & Fault Tolerance<br>• In-Memory Caching Benchmark (`persist(MEMORY_AND_DISK)`) |
-| **Nishanth S Gowda** | **Machine Learning & Visuals Lead** | **5 Marks** | • PySpark MLlib Feature Pipeline (`crime_ml_pyspark.py`)<br>• Feature Vectorization (`StringIndexer`, `VectorAssembler`)<br>• Logistic Regression vs. Random Forest Classifier<br>• Diagnostics: 90.5% Accuracy, 0.8842 ROC-AUC, Confusion Matrix<br>• 4 Publication Visual Analytics Plots (`generate_visualizations.py`) |
+| **Sheela Akshar Sakhi** | **Distributed Data Engineering Lead** | **Distributed Architecture** | • Scala + Spark RDD Engine (`CrimeAnalyticsRDD.scala`)<br>• Transformations (`filter`, `map`, `flatMap`, `reduceByKey`, `sortBy`)<br>• Actions (`count`, `take`, `reduce`, `collect`)<br>• Partition Rebalancing (`repartition` vs `coalesce`)<br>• DAG Lineage (`toDebugString`) & Fault Tolerance<br>• In-Memory Caching Benchmark (`persist(MEMORY_AND_DISK)`) |
+| **Nishanth S Gowda** | **Machine Learning & Visuals Lead** | **ML & Visual Analytics** | • PySpark MLlib Feature Pipeline (`crime_ml_pyspark.py`)<br>• Feature Vectorization (`StringIndexer`, `VectorAssembler`)<br>• Logistic Regression vs. Random Forest Classifier<br>• Diagnostics: 90.5% Accuracy, 0.8842 ROC-AUC, Confusion Matrix<br>• 4 Publication Visual Analytics Plots (`generate_visualizations.py`) |
 
 ---
 
@@ -97,7 +97,7 @@ Acquired from the official **City of Chicago Open Data Portal** (Chicago Police 
 
 ---
 
-## ⚡ Phase 1: Scala + Apache Spark Core RDD Analytics (10 Marks)
+## ⚡ Phase 1: Scala + Apache Spark Core RDD Analytics
 
 Implemented in [`CrimeAnalyticsRDD.scala`](src/main/scala/bigdata/CrimeAnalyticsRDD.scala) by **Sheela Akshar Sakhi**.
 
@@ -126,7 +126,7 @@ $$\text{Speedup Factor} = \frac{\text{Uncached Latency}}{\text{Cached Latency}} 
 
 ---
 
-## 🤖 Phase 2: PySpark Machine Learning Pipeline (3 Marks)
+## 🤖 Phase 2: PySpark Machine Learning Pipeline
 
 Implemented in [`pyspark/crime_ml_pyspark.py`](pyspark/crime_ml_pyspark.py) by **Nishanth S Gowda**.
 
@@ -159,7 +159,7 @@ Supervised binary classification forecasting whether an incident will result in 
 
 ---
 
-## 📈 Phase 3: Visual Analytics (2 Marks)
+## 📈 Phase 3: Visual Analytics
 
 Generated via [`visualizations/generate_visualizations.py`](visualizations/generate_visualizations.py) by **Nishanth S Gowda**.
 
@@ -237,14 +237,14 @@ spark-shell -i src/main/scala/bigdata/spark_rdd_script.scala
 
 ---
 
-## 🏆 Review 3 Rubric Compliance Matrix (15 / 15 Marks)
+## 🏆 Review 3 Rubric Compliance Matrix
 
-| Evaluation Rubric Criteria | Weight | Primary Lead | Implementation Evidence | Status |
-| :--- | :---: | :--- | :--- | :---: |
-| **Scala + Spark RDD Processing & Concepts** | **10 Marks** | Sheela Akshar Sakhi | `CrimeAnalyticsRDD.scala`: RDDs, transformations, actions, DAG lineage, partitions, $22.8\times$ caching | **100% SATISFIED** |
-| **PySpark Machine Learning Model** | **3 Marks** | Nishanth S Gowda | `crime_ml_pyspark.py`: Feature pipeline, Random Forest, 90.5% Acc, 0.8842 ROC-AUC | **100% SATISFIED** |
-| **Data Visualization & Real-World Results** | **2 Marks** | Nishanth S Gowda | 4 publication plots in `visualizations/`, operational policing takeaways | **100% SATISFIED** |
-| **Total Evaluation Marks** | **15 / 15** | Both | **All Review 3 rubric requirements fully satisfied & benchmarked** | **COMPLETE** |
+| Evaluation Rubric Criteria | Primary Lead | Implementation Evidence | Status |
+| :--- | :--- | :--- | :---: |
+| **Scala + Spark RDD Processing & Concepts** | Sheela Akshar Sakhi | `CrimeAnalyticsRDD.scala`: RDDs, transformations, actions, DAG lineage, partitions, $22.8\times$ caching | **100% SATISFIED** |
+| **PySpark Machine Learning Model** | Nishanth S Gowda | `crime_ml_pyspark.py`: Feature pipeline, Random Forest, 90.5% Acc, 0.8842 ROC-AUC | **100% SATISFIED** |
+| **Data Visualization & Real-World Results** | Nishanth S Gowda | 4 publication plots in `visualizations/`, operational policing takeaways | **100% SATISFIED** |
+| **Rubric Compliance Summary** | Both | **All Review 3 rubric requirements fully satisfied & benchmarked** | **COMPLETE** |
 
 ---
 
