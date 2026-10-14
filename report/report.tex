@@ -785,13 +785,10 @@ Table~\ref{tab:rubric_verification} maps the project deliverables against the of
         \textbf{1. Scala + Spark Implementation \& Core Concepts} & Sheela Akshar Sakhi & 
         Implemented in \texttt{CrimeAnalyticsRDD.scala}. Validated RDD creation, transformations (\texttt{filter}, \texttt{map}, \texttt{flatMap}, \texttt{reduceByKey}, \texttt{sortBy}), actions (\texttt{count}, \texttt{take}, \texttt{reduce}, \texttt{collect}), partitions, DAG lineage via \texttt{toDebugString}, and in-memory caching ($11.3\times$ to $22.8\times$ speedup, Figure~\ref{fig:proof1_rdd}). \\
         \midrule
-        \textbf{2. PySpark Machine Learning Pipeline} & Nishanth S Gowda & 
-        Implemented in \texttt{crime\_ml\_pyspark.py}. Assembled 7-attribute feature vector via \texttt{VectorAssembler}, trained Logistic Regression vs. Random Forest, and evaluated on Accuracy ($88.65\%$ empirical / $90.5\%$ tuned), F1 ($0.4439$ empirical), and ROC-AUC ($0.8223$ to $0.8842$, Figure~\ref{fig:proof5_metrics}). \\
+        \textbf{2. PySpark ML Pipeline \& Visual Analytics} & Nishanth S Gowda & 
+        Implemented in \texttt{crime\_ml\_pyspark.py} and \texttt{generate\_visualizations.py}. Assembled 7-attribute feature vector via \texttt{VectorAssembler}, trained Logistic Regression vs. Random Forest (Accuracy $88.65\%$, ROC-AUC $0.8223$), and engineered 4 publication-quality charts depicting district hotspots, arrest clearance rates, model ROC curves with confusion matrices, and feature importance rankings (Figures~\ref{fig:proof5_metrics}, \ref{fig:fig1_dist}--\ref{fig:fig4_feat}). \\
         \midrule
-        \textbf{3. Visualization and Analytical Results} & Nishanth S Gowda & 
-        Engineered in \texttt{generate\_visualizations.py}. Generated 4 publication-quality charts depicting district hotspots, arrest clearance rates, model ROC curves with confusion matrices, and feature importance rankings. \\
-        \midrule
-        \multicolumn{3}{c}{\textbf{All Project Review 3 Rubric Criteria Fully Satisfied}} \\
+        \multicolumn{3}{c}{\textbf{All Project Review 3 Rubric Criteria Fully Satisfied by Both Team Members}} \\
         \bottomrule
     \end{tabular}
 \end{table}
