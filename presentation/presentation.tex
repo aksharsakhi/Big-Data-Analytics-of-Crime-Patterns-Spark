@@ -549,34 +549,84 @@ val top5 = districtCounts.take(5)
 \end{frame}
 
 % ==========================================================================
-% SLIDE 12: Authenticated Execution Proofs & Terminal Logs
+% SLIDE 12: Authenticated Execution Proofs 1 & 2: Scala + Spark RDD Engine
 % ==========================================================================
-\begin{frame}{Slide 12: Authenticated Execution Proofs \& Terminal Logs \hfill \footnotesize\color{AmritaMaroon}\textbf{[15 Marks Evidence]}}
+\begin{frame}{Slide 12: Authenticated Proofs 1 \& 2: Scala + Spark RDD Engine \hfill \footnotesize\color{AmritaMaroon}\textbf{[10 Marks Evidence]}}
     \begin{columns}[T]
         \begin{column}{0.49\textwidth}
-            \textbf{\textcolor{NavyBlue}{\scriptsize 1. Scala + Spark RDD Engine (10 Marks):}}
-            \vspace{0.05cm}
+            \textbf{\textcolor{NavyBlue}{\scriptsize 1. RDD Ingestion, Transformations \& Cache:}}
+            \vspace{0.04cm}
             \centering
-            \fbox{\includegraphics[width=\linewidth,height=3.4cm,keepaspectratio]{images/terminal_spark_shell_rdd.png}}
-            \vspace{0.05cm}
-            {\tiny \textbf{Verified:} \texttt{filter}, \texttt{map}, \texttt{reduceByKey}, 2$\rightarrow$4$\rightarrow$2 partitions, DAG lineage, and \textbf{$22.8\times$ in-memory caching speedup}.}
+            \fbox{\includegraphics[width=\linewidth,height=3.35cm,keepaspectratio]{images/proof1_spark_rdd_transformations_cache.png}}
+            \vspace{0.04cm}
+            {\tiny \textbf{Verified:} \texttt{spark-shell}, 10,000 lines ingested, \texttt{reduceByKey} district \& crime counts, \texttt{flatMap} keywords, and \textbf{11.3$\times$ cache speedup (170ms $\to$ 15ms)}.}
         \end{column}
         
         \begin{column}{0.49\textwidth}
-            \textbf{\textcolor{NavyBlue}{\scriptsize 2. PySpark ML Model \& SQLite (5 Marks):}}
-            \vspace{0.05cm}
+            \textbf{\textcolor{NavyBlue}{\scriptsize 2. Partition Management (2$\to$4$\to$2) \& DAG:}}
+            \vspace{0.04cm}
             \centering
-            \fbox{\includegraphics[width=\linewidth,height=3.4cm,keepaspectratio]{images/terminal_sqlite_backend.png}}
-            \vspace{0.05cm}
-            {\tiny \textbf{Verified:} VectorAssembler, 80/20 split, \textbf{88.65\% Accuracy}, \textbf{0.8223 ROC-AUC}, Confusion Matrix, and \textbf{SQLite warehouse queries}.}
+            \fbox{\includegraphics[width=\linewidth,height=3.35cm,keepaspectratio]{images/proof2_spark_rdd_partitions_dag.png}}
+            \vspace{0.04cm}
+            {\tiny \textbf{Verified:} \texttt{repartition(4)} wide shuffle, \texttt{coalesce(2)} narrow merge (zero network I/O), \texttt{toDebugString} DAG lineage, and pipeline success banner.}
         \end{column}
     \end{columns}
 \end{frame}
 
 % ==========================================================================
-% SLIDE 13: Conclusion & Rubric Compliance
+% SLIDE 13: Authenticated Execution Proofs 3 & 4: PySpark ML Pipeline
 % ==========================================================================
-\begin{frame}{Slide 13: Conclusion \& Evaluation Rubric Compliance}
+\begin{frame}{Slide 13: Authenticated Proofs 3 \& 4: PySpark ML Training Pipeline \hfill \footnotesize\color{AmritaMaroon}\textbf{[3 Marks Evidence]}}
+    \begin{columns}[T]
+        \begin{column}{0.49\textwidth}
+            \textbf{\textcolor{NavyBlue}{\scriptsize 3. PySpark Runtime \& Driver Startup:}}
+            \vspace{0.04cm}
+            \centering
+            \fbox{\includegraphics[width=\linewidth,height=3.35cm,keepaspectratio]{images/proof3_pyspark_ml_startup.png}}
+            \vspace{0.04cm}
+            {\tiny \textbf{Verified:} \texttt{spark-submit}, Spark 3.5.8 on macOS Apple Silicon (ARM64), OpenJDK 17.0.20.1, and PySpark driver initialization.}
+        \end{column}
+        
+        \begin{column}{0.49\textwidth}
+            \textbf{\textcolor{NavyBlue}{\scriptsize 4. Feature VectorAssembler \& Model Training:}}
+            \vspace{0.04cm}
+            \centering
+            \fbox{\includegraphics[width=\linewidth,height=3.35cm,keepaspectratio]{images/proof4_pyspark_ml_preprocessing_training.png}}
+            \vspace{0.04cm}
+            {\tiny \textbf{Verified:} 10,000-record DataFrame, 7-attribute \texttt{VectorAssembler}, 80/20 train/test split (8,079 / 1,921), and Logistic Regression training.}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% ==========================================================================
+% SLIDE 14: Authenticated Execution Proofs 5 & 6: ML Evaluation & SQLite Warehouse
+% ==========================================================================
+\begin{frame}{Slide 14: Authenticated Proofs 5 \& 6: Evaluation \& SQLite Warehouse \hfill \footnotesize\color{AmritaMaroon}\textbf{[Full-Stack Evidence]}}
+    \begin{columns}[T]
+        \begin{column}{0.49\textwidth}
+            \textbf{\textcolor{NavyBlue}{\scriptsize 5. Random Forest Evaluation \& Gini Importance:}}
+            \vspace{0.04cm}
+            \centering
+            \fbox{\includegraphics[width=\linewidth,height=3.35cm,keepaspectratio]{images/proof5_pyspark_ml_evaluation_metrics.png}}
+            \vspace{0.04cm}
+            {\tiny \textbf{Verified:} \textbf{88.65\% Accuracy}, \textbf{0.8223 ROC-AUC}, 1,921-record Confusion Matrix (TN: 1616, FP: 15, FN: 203, TP: 87), and Gini feature ranking.}
+        \end{column}
+        
+        \begin{column}{0.49\textwidth}
+            \textbf{\textcolor{NavyBlue}{\scriptsize 6. Full-Stack SQLite Warehouse Terminal Query:}}
+            \vspace{0.04cm}
+            \centering
+            \fbox{\includegraphics[width=\linewidth,height=3.35cm,keepaspectratio]{images/proof6_sqlite_data_warehouse_backend.png}}
+            \vspace{0.04cm}
+            {\tiny \textbf{Verified:} Direct terminal SQL query on \texttt{crime\_warehouse.db} returning clearance rates via active B-tree index in 0.8 ms.}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% ==========================================================================
+% SLIDE 15: Conclusion & Rubric Compliance
+% ==========================================================================
+\begin{frame}{Slide 15: Conclusion \& Evaluation Rubric Compliance}
     \begin{columns}[T]
         \begin{column}{0.48\textwidth}
             \textbf{\textcolor{NavyBlue}{What Was Achieved:}}

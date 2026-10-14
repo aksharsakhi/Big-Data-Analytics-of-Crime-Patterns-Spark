@@ -307,10 +307,10 @@
         </div>
 
         <div class="proof-grid">
-          <!-- Card 1: Scala RDD -->
+          <!-- Card 1: Scala RDD Ingestion & Cache -->
           <div class="proof-card">
-            <div class="proof-thumb-wrapper" onclick="openLightbox('assets/screenshots/terminal_spark_shell_rdd.png', 'Scala + Spark RDD Engine Processing (10 Marks Evidence)')">
-              <img src="assets/screenshots/terminal_spark_shell_rdd.png" alt="Scala Spark RDD Terminal Proof" loading="lazy">
+            <div class="proof-thumb-wrapper" onclick="openLightbox('assets/screenshots/proof1_spark_rdd_transformations_cache.png', 'Terminal Proof 1: Scala + Spark RDD Ingestion, Transformations & Cache Speedup (10 Marks Evidence)')">
+              <img src="assets/screenshots/proof1_spark_rdd_transformations_cache.png" alt="Scala Spark RDD Ingestion & Cache Proof" loading="lazy">
               <div class="proof-overlay">
                 <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
                 <span>Click to Enlarge</span>
@@ -318,19 +318,19 @@
             </div>
             <div class="proof-info">
               <div class="proof-header-row">
-                <span class="proof-title">1. Scala + Spark RDD Engine</span>
+                <span class="proof-title">1. RDD Transformations & Cache</span>
                 <span class="badge success">10 Marks Rubric</span>
               </div>
               <p class="proof-desc">
-                Verifies RDD creation via <code>sc.textFile()</code>, transformations (<code>filter</code>, <code>map</code>), key-value reduction via <code>reduceByKey()</code>, partition rebalancing (<code>repartition</code> & <code>coalesce</code>), DAG lineage, and 11.3x in-memory cache acceleration.
+                Verifies dataset loading in <code>spark-shell</code>, narrow <code>filter</code> & <code>map</code>, <code>reduceByKey</code> district and offense aggregation, <code>flatMap</code> keywords, and in-memory cache acceleration ($170\text{ ms} \to 15\text{ ms}$).
               </p>
             </div>
           </div>
 
-          <!-- Card 2: PySpark ML Ingestion & Training -->
+          <!-- Card 2: Scala RDD Partitions & DAG -->
           <div class="proof-card">
-            <div class="proof-thumb-wrapper" onclick="openLightbox('assets/screenshots/terminal_pyspark_ml.png', 'PySpark ML Model Pipeline & Ingestion (3 Marks Evidence)')">
-              <img src="assets/screenshots/terminal_pyspark_ml.png" alt="PySpark ML Pipeline Proof" loading="lazy">
+            <div class="proof-thumb-wrapper" onclick="openLightbox('assets/screenshots/proof2_spark_rdd_partitions_dag.png', 'Terminal Proof 2: Dynamic Partitioning & DAG Lineage Inspection (10 Marks Evidence)')">
+              <img src="assets/screenshots/proof2_spark_rdd_partitions_dag.png" alt="Partitioning and DAG Proof" loading="lazy">
               <div class="proof-overlay">
                 <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
                 <span>Click to Enlarge</span>
@@ -338,19 +338,39 @@
             </div>
             <div class="proof-info">
               <div class="proof-header-row">
-                <span class="proof-title">2. PySpark ML Model Pipeline & Training</span>
+                <span class="proof-title">2. Partitions (2→4→2) & DAG Lineage</span>
+                <span class="badge success">10 Marks Rubric</span>
+              </div>
+              <p class="proof-desc">
+                Verifies <code>repartition(4)</code> wide shuffle, <code>coalesce(2)</code> narrow merge with zero network I/O, full DAG execution graph via <code>toDebugString</code>, and pipeline success banner.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3: PySpark ML Startup & Environment -->
+          <div class="proof-card">
+            <div class="proof-thumb-wrapper" onclick="openLightbox('assets/screenshots/proof3_pyspark_ml_startup.png', 'Terminal Proof 3: PySpark Environment Startup & SparkContext (3 Marks Evidence)')">
+              <img src="assets/screenshots/proof3_pyspark_ml_startup.png" alt="PySpark ML Startup Proof" loading="lazy">
+              <div class="proof-overlay">
+                <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                <span>Click to Enlarge</span>
+              </div>
+            </div>
+            <div class="proof-info">
+              <div class="proof-header-row">
+                <span class="proof-title">3. PySpark Runtime & Driver Setup</span>
                 <span class="badge success">3 Marks Rubric</span>
               </div>
               <p class="proof-desc">
-                Verifies Spark DataFrame ingestion of 10,000 records, feature indexers, <code>VectorAssembler</code> pipeline, 80/20 train/test split (8,079 train / 1,921 test), and model training.
+                Verifies <code>spark-submit</code> invocation on macOS Apple Silicon (ARM64) running Apache Spark 3.5.8 and OpenJDK 17.0.20.1 with SparkContext and WebUI allocation.
               </p>
             </div>
           </div>
 
-          <!-- Card 3: Model Evaluation & Confusion Matrix -->
+          <!-- Card 4: PySpark Feature Engineering & Training -->
           <div class="proof-card">
-            <div class="proof-thumb-wrapper" onclick="openLightbox('assets/screenshots/terminal_dag_caching_proof.png', 'PySpark Model Evaluation, Confusion Matrix & Feature Importance')">
-              <img src="assets/screenshots/terminal_dag_caching_proof.png" alt="PySpark Model Evaluation Proof" loading="lazy">
+            <div class="proof-thumb-wrapper" onclick="openLightbox('assets/screenshots/proof4_pyspark_ml_preprocessing_training.png', 'Terminal Proof 4: PySpark VectorAssembler & Classifier Training (3 Marks Evidence)')">
+              <img src="assets/screenshots/proof4_pyspark_ml_preprocessing_training.png" alt="PySpark Training Proof" loading="lazy">
               <div class="proof-overlay">
                 <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
                 <span>Click to Enlarge</span>
@@ -358,19 +378,39 @@
             </div>
             <div class="proof-info">
               <div class="proof-header-row">
-                <span class="proof-title">3. Model Evaluation & Confusion Matrix</span>
+                <span class="proof-title">4. Feature Pipeline & Model Training</span>
+                <span class="badge success">3 Marks Rubric</span>
+              </div>
+              <p class="proof-desc">
+                Verifies Spark DataFrame loading of 10,000 records, 7-attribute <code>VectorAssembler</code> feature pipeline, 80/20 train/test split (8,079 / 1,921), and Logistic Regression training.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 5: PySpark Model Evaluation & Confusion Matrix -->
+          <div class="proof-card">
+            <div class="proof-thumb-wrapper" onclick="openLightbox('assets/screenshots/proof5_pyspark_ml_evaluation_metrics.png', 'Terminal Proof 5: Random Forest Evaluation & Feature Importance (3 Marks Evidence)')">
+              <img src="assets/screenshots/proof5_pyspark_ml_evaluation_metrics.png" alt="PySpark Model Evaluation Proof" loading="lazy">
+              <div class="proof-overlay">
+                <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                <span>Click to Enlarge</span>
+              </div>
+            </div>
+            <div class="proof-info">
+              <div class="proof-header-row">
+                <span class="proof-title">5. Model Evaluation & Confusion Matrix</span>
                 <span class="badge cyan">88.65% Accuracy</span>
               </div>
               <p class="proof-desc">
-                Verifies Random Forest test evaluation: <strong>88.65% Accuracy</strong>, <strong>0.8223 ROC-AUC</strong>, full confusion matrix (TN: 1,616, FP: 15, FN: 203, TP: 87), and Gini feature importance ranking.
+                Verifies Random Forest test metrics: <strong>88.65% Accuracy</strong>, <strong>0.8223 ROC-AUC</strong>, binary Confusion Matrix (TN: 1,616, FP: 15, FN: 203, TP: 87), and Gini feature ranking.
               </p>
             </div>
           </div>
 
-          <!-- Card 4: SQLite Database -->
+          <!-- Card 6: SQLite Data Warehouse -->
           <div class="proof-card">
-            <div class="proof-thumb-wrapper" onclick="openLightbox('assets/screenshots/terminal_sqlite_backend.png', 'SQLite Data Warehouse & Full-Stack Server Proof')">
-              <img src="assets/screenshots/terminal_sqlite_backend.png" alt="SQLite Backend Server Proof" loading="lazy">
+            <div class="proof-thumb-wrapper" onclick="openLightbox('assets/screenshots/proof6_sqlite_data_warehouse_backend.png', 'Terminal Proof 6: Full-Stack SQLite 3 Warehouse Terminal Query (Bonus Evidence)')">
+              <img src="assets/screenshots/proof6_sqlite_data_warehouse_backend.png" alt="SQLite Backend Server Proof" loading="lazy">
               <div class="proof-overlay">
                 <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
                 <span>Click to Enlarge</span>
@@ -378,7 +418,7 @@
             </div>
             <div class="proof-info">
               <div class="proof-header-row">
-                <span class="proof-title">4. SQLite 3 Warehouse & Terminal Query Proof</span>
+                <span class="proof-title">6. SQLite 3 Warehouse Terminal Proof</span>
                 <span class="badge yellow">Full-Stack Bonus</span>
               </div>
               <p class="proof-desc">
