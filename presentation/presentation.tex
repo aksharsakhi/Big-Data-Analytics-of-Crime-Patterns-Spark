@@ -259,12 +259,12 @@
             \end{itemize}
         \end{column}
         \begin{column}{0.50\textwidth}
-            \textbf{\textcolor{NavyBlue}{\scriptsize Authenticated Terminal Proof 1: Transformations \& Cache}}
-            \vspace{0.03cm}
             \centering
-            \fbox{\includegraphics[width=\linewidth,height=3.9cm,keepaspectratio]{images/proof1_spark_rdd_transformations_cache.png}}
-            \vspace{0.03cm}
-            {\tiny \textbf{Empirical Terminal Verification:} Ingested 10,000 rows in \texttt{spark-shell}, verified \texttt{reduceByKey} and \texttt{flatMap}, and benchmarked \textbf{11.3$\times$ cache speedup (170ms $\to$ 15ms)}.}
+            {\scriptsize\textbf{\textcolor{NavyBlue}{Authenticated Terminal Proof 1: Transformations \& Cache}}}\par
+            \vspace{0.06cm}
+            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.35cm,keepaspectratio]{images/proof1_spark_rdd_transformations_cache.png}}}\par
+            \vspace{0.04cm}
+            {\tiny \textbf{Empirical Terminal Verification:} Ingested 10,000 rows in \texttt{spark-shell}, verified \texttt{reduceByKey} and \texttt{flatMap}, and benchmarked \textbf{11.3$\times$ cache speedup (170ms $\to$ 15ms)}.\par}
         \end{column}
     \end{columns}
 \end{frame}
@@ -300,12 +300,12 @@
             \end{itemize}
         \end{column}
         \begin{column}{0.50\textwidth}
-            \textbf{\textcolor{NavyBlue}{\scriptsize Authenticated Terminal Proof 2: Partitions \& DAG Lineage}}
-            \vspace{0.03cm}
             \centering
-            \fbox{\includegraphics[width=\linewidth,height=3.9cm,keepaspectratio]{images/proof2_spark_rdd_partitions_dag.png}}
-            \vspace{0.03cm}
-            {\tiny \textbf{Empirical Terminal Verification:} Demonstrates partition scaling ($2 \to 4 \to 2$), prints complete \texttt{toDebugString} DAG lineage, and displays pipeline success banner.}
+            {\scriptsize\textbf{\textcolor{NavyBlue}{Authenticated Terminal Proof 2: Partitions \& DAG Lineage}}}\par
+            \vspace{0.06cm}
+            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.35cm,keepaspectratio]{images/proof2_spark_rdd_partitions_dag.png}}}\par
+            \vspace{0.04cm}
+            {\tiny \textbf{Empirical Terminal Verification:} Demonstrates partition scaling ($2 \to 4 \to 2$), prints complete \texttt{toDebugString} DAG lineage, and displays pipeline success banner.\par}
         \end{column}
     \end{columns}
 \end{frame}
@@ -348,12 +348,12 @@
             \end{itemize}
         \end{column}
         \begin{column}{0.50\textwidth}
-            \textbf{\textcolor{NavyBlue}{\scriptsize Authenticated Terminal Proof 3: PySpark Runtime Startup}}
-            \vspace{0.03cm}
             \centering
-            \fbox{\includegraphics[width=\linewidth,height=3.9cm,keepaspectratio]{images/proof3_pyspark_ml_startup.png}}
-            \vspace{0.03cm}
-            {\tiny \textbf{Empirical Terminal Verification:} \texttt{spark-submit} launch on Apache Spark 3.5.8, Apple Silicon ARM64, and OpenJDK 17.0.20.1 initializing PySpark driver for ML handoff.}
+            {\scriptsize\textbf{\textcolor{NavyBlue}{Authenticated Terminal Proof 3: PySpark Runtime Startup}}}\par
+            \vspace{0.06cm}
+            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.35cm,keepaspectratio]{images/proof3_pyspark_ml_startup.png}}}\par
+            \vspace{0.04cm}
+            {\tiny \textbf{Empirical Terminal Verification:} \texttt{spark-submit} launch on Apache Spark 3.5.8, Apple Silicon ARM64, and OpenJDK 17.0.20.1 initializing PySpark driver for ML handoff.\par}
         \end{column}
     \end{columns}
 \end{frame}
@@ -386,12 +386,12 @@
             \end{itemize}
         \end{column}
         \begin{column}{0.50\textwidth}
-            \textbf{\textcolor{NavyBlue}{\scriptsize Authenticated Terminal Proof 4: Assembler \& Model Training}}
-            \vspace{0.03cm}
             \centering
-            \fbox{\includegraphics[width=\linewidth,height=3.9cm,keepaspectratio]{images/proof4_pyspark_ml_preprocessing_training.png}}
-            \vspace{0.03cm}
-            {\tiny \textbf{Empirical Terminal Verification:} Loads 10k DataFrame, constructs 7-feature VectorAssembler, performs 80/20 train/test split, and executes PySpark ML training.}
+            {\scriptsize\textbf{\textcolor{NavyBlue}{Authenticated Terminal Proof 4: Assembler \& Model Training}}}\par
+            \vspace{0.06cm}
+            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.35cm,keepaspectratio]{images/proof4_pyspark_ml_preprocessing_training.png}}}\par
+            \vspace{0.04cm}
+            {\tiny \textbf{Empirical Terminal Verification:} Loads 10k DataFrame, constructs 7-feature VectorAssembler, performs 80/20 train/test split, and executes PySpark ML training.\par}
         \end{column}
     \end{columns}
 \end{frame}
@@ -441,12 +441,12 @@
             \end{itemize}
         \end{column}
         \begin{column}{0.50\textwidth}
-            \textbf{\textcolor{NavyBlue}{\scriptsize Authenticated Terminal Proof 5: Metrics \& Gini Importance}}
-            \vspace{0.03cm}
             \centering
-            \fbox{\includegraphics[width=\linewidth,height=3.9cm,keepaspectratio]{images/proof5_pyspark_ml_evaluation_metrics.png}}
-            \vspace{0.03cm}
-            {\tiny \textbf{Empirical Terminal Verification:} Proves \textbf{88.65\% Accuracy}, \textbf{0.8223 ROC-AUC}, full 1,921-record test confusion matrix, and Gini feature ranking in terminal.}
+            {\scriptsize\textbf{\textcolor{NavyBlue}{Authenticated Terminal Proof 5: Metrics \& Gini Importance}}}\par
+            \vspace{0.06cm}
+            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.35cm,keepaspectratio]{images/proof5_pyspark_ml_evaluation_metrics.png}}}\par
+            \vspace{0.04cm}
+            {\tiny \textbf{Empirical Terminal Verification:} Proves \textbf{88.65\% Accuracy}, \textbf{0.8223 ROC-AUC}, full 1,921-record test confusion matrix, and Gini feature ranking in terminal.\par}
         \end{column}
     \end{columns}
 \end{frame}
@@ -458,27 +458,27 @@
     \begin{columns}[T]
         \begin{column}{0.32\textwidth}
             \centering
-            \textbf{\textcolor{NavyBlue}{\scriptsize 1. District Hotspots:}}
+            {\scriptsize\textbf{\textcolor{NavyBlue}{1. District Hotspots}}}\par
+            \vspace{0.05cm}
+            {\includegraphics[width=\linewidth,height=3.6cm,keepaspectratio]{images/fig1_district_crime_distribution.png}}\par
             \vspace{0.04cm}
-            \includegraphics[width=\linewidth,height=4.1cm,keepaspectratio]{images/fig1_district_crime_distribution.png}
-            \vspace{0.02cm}
-            {\tiny \textbf{Hotspot Analysis:} District 012 and 011 account for top crime concentrations.}
+            {\tiny \textbf{Hotspot Analysis:} District 012 and 011 account for top crime concentrations.\par}
         \end{column}
         \begin{column}{0.32\textwidth}
             \centering
-            \textbf{\textcolor{NavyBlue}{\scriptsize 2. Clearance Rates:}}
+            {\scriptsize\textbf{\textcolor{NavyBlue}{2. Clearance Rates}}}\par
+            \vspace{0.05cm}
+            {\includegraphics[width=\linewidth,height=3.6cm,keepaspectratio]{images/fig2_crime_type_arrest_rate.png}}\par
             \vspace{0.04cm}
-            \includegraphics[width=\linewidth,height=4.1cm,keepaspectratio]{images/fig2_crime_type_arrest_rate.png}
-            \vspace{0.02cm}
-            {\tiny \textbf{Arrest Clearance:} Narcotics shows high clearance; Theft remains heavily unapprehended.}
+            {\tiny \textbf{Arrest Clearance:} Narcotics shows high clearance; Theft remains heavily unapprehended.\par}
         \end{column}
         \begin{column}{0.32\textwidth}
             \centering
-            \textbf{\textcolor{NavyBlue}{\scriptsize 3. ML ROC \& Matrix:}}
+            {\scriptsize\textbf{\textcolor{NavyBlue}{3. ML ROC \& Matrix}}}\par
+            \vspace{0.05cm}
+            {\includegraphics[width=\linewidth,height=3.6cm,keepaspectratio]{images/fig3_model_confusion_matrix_roc.png}}\par
             \vspace{0.04cm}
-            \includegraphics[width=\linewidth,height=4.1cm,keepaspectratio]{images/fig3_model_confusion_matrix_roc.png}
-            \vspace{0.02cm}
-            {\tiny \textbf{Model Validation:} Random Forest AUC of 0.822 proves reliable discriminative power.}
+            {\tiny \textbf{Model Validation:} Random Forest AUC of 0.822 proves reliable discriminative power.\par}
         \end{column}
     \end{columns}
 \end{frame}
@@ -506,12 +506,12 @@
             \end{itemize}
         \end{column}
         \begin{column}{0.50\textwidth}
-            \textbf{\textcolor{NavyBlue}{\scriptsize Authenticated Terminal Proof 6: SQLite Warehouse Backend}}
-            \vspace{0.03cm}
             \centering
-            \fbox{\includegraphics[width=\linewidth,height=3.9cm,keepaspectratio]{images/proof6_sqlite_data_warehouse_backend.png}}
-            \vspace{0.03cm}
-            {\tiny \textbf{Empirical Terminal Verification:} Direct terminal SQL query on \texttt{crime\_warehouse.db} verifying clearance rates in 0.8 ms, validating the full-stack architecture.}
+            {\scriptsize\textbf{\textcolor{NavyBlue}{Authenticated Terminal Proof 6: SQLite Warehouse Backend}}}\par
+            \vspace{0.06cm}
+            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.35cm,keepaspectratio]{images/proof6_sqlite_data_warehouse_backend.png}}}\par
+            \vspace{0.04cm}
+            {\tiny \textbf{Empirical Terminal Verification:} Direct terminal SQL query on \texttt{crime\_warehouse.db} verifying clearance rates in 0.8 ms, validating full-stack architecture.\par}
         \end{column}
     \end{columns}
 \end{frame}
@@ -568,21 +568,21 @@
 \begin{frame}{Appendix A1: High-Resolution Proofs 1 \& 2 (Scala + Spark RDD Engine)}
     \begin{columns}[T]
         \begin{column}{0.49\textwidth}
-            \textbf{\textcolor{NavyBlue}{\scriptsize 1. RDD Ingestion, Transformations \& Cache:}}
-            \vspace{0.04cm}
             \centering
-            \fbox{\includegraphics[width=\linewidth,height=3.6cm,keepaspectratio]{images/proof1_spark_rdd_transformations_cache.png}}
-            \vspace{0.03cm}
-            {\tiny \texttt{spark-shell}, 10k lines, \texttt{reduceByKey}, \texttt{flatMap}, and 11.3$\times$ cache speedup.}
+            {\scriptsize\textbf{\textcolor{NavyBlue}{1. RDD Ingestion, Transformations \& Cache}}}\par
+            \vspace{0.06cm}
+            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.4cm,keepaspectratio]{images/proof1_spark_rdd_transformations_cache.png}}}\par
+            \vspace{0.04cm}
+            {\tiny \texttt{spark-shell}, 10k lines, \texttt{reduceByKey}, \texttt{flatMap}, 11.3$\times$ cache speedup.\par}
         \end{column}
         
         \begin{column}{0.49\textwidth}
-            \textbf{\textcolor{NavyBlue}{\scriptsize 2. Partition Management (2$\to$4$\to$2) \& DAG:}}
-            \vspace{0.04cm}
             \centering
-            \fbox{\includegraphics[width=\linewidth,height=3.6cm,keepaspectratio]{images/proof2_spark_rdd_partitions_dag.png}}
-            \vspace{0.03cm}
-            {\tiny \texttt{repartition(4)}, \texttt{coalesce(2)}, \texttt{toDebugString} DAG, and success banner.}
+            {\scriptsize\textbf{\textcolor{NavyBlue}{2. Partition Management (2$\to$4$\to$2) \& DAG}}}\par
+            \vspace{0.06cm}
+            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.4cm,keepaspectratio]{images/proof2_spark_rdd_partitions_dag.png}}}\par
+            \vspace{0.04cm}
+            {\tiny \texttt{repartition(4)}, \texttt{coalesce(2)}, \texttt{toDebugString} DAG, success banner.\par}
         \end{column}
     \end{columns}
 \end{frame}
@@ -590,21 +590,21 @@
 \begin{frame}{Appendix A2: High-Resolution Proofs 3 \& 4 (PySpark ML Pipeline)}
     \begin{columns}[T]
         \begin{column}{0.49\textwidth}
-            \textbf{\textcolor{NavyBlue}{\scriptsize 3. PySpark Runtime \& Driver Startup:}}
-            \vspace{0.04cm}
             \centering
-            \fbox{\includegraphics[width=\linewidth,height=3.6cm,keepaspectratio]{images/proof3_pyspark_ml_startup.png}}
-            \vspace{0.03cm}
-            {\tiny \texttt{spark-submit}, Spark 3.5.8 on macOS Apple Silicon ARM64, and PySpark driver init.}
+            {\scriptsize\textbf{\textcolor{NavyBlue}{3. PySpark Runtime \& Driver Startup}}}\par
+            \vspace{0.06cm}
+            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.4cm,keepaspectratio]{images/proof3_pyspark_ml_startup.png}}}\par
+            \vspace{0.04cm}
+            {\tiny \texttt{spark-submit}, Spark 3.5.8 on macOS ARM64, OpenJDK 17.0.20.1, driver init.\par}
         \end{column}
         
         \begin{column}{0.49\textwidth}
-            \textbf{\textcolor{NavyBlue}{\scriptsize 4. Feature VectorAssembler \& Model Training:}}
-            \vspace{0.04cm}
             \centering
-            \fbox{\includegraphics[width=\linewidth,height=3.6cm,keepaspectratio]{images/proof4_pyspark_ml_preprocessing_training.png}}
-            \vspace{0.03cm}
-            {\tiny 10k DataFrame, 7-attribute \texttt{VectorAssembler}, 80/20 train/test split, and model training.}
+            {\scriptsize\textbf{\textcolor{NavyBlue}{4. VectorAssembler \& Model Training}}}\par
+            \vspace{0.06cm}
+            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.4cm,keepaspectratio]{images/proof4_pyspark_ml_preprocessing_training.png}}}\par
+            \vspace{0.04cm}
+            {\tiny 10k DataFrame, 7-attribute \texttt{VectorAssembler}, 80/20 train/test split, model training.\par}
         \end{column}
     \end{columns}
 \end{frame}
@@ -612,21 +612,21 @@
 \begin{frame}{Appendix A3: High-Resolution Proofs 5 \& 6 (Evaluation \& SQLite Warehouse)}
     \begin{columns}[T]
         \begin{column}{0.49\textwidth}
-            \textbf{\textcolor{NavyBlue}{\scriptsize 5. Random Forest Evaluation \& Gini Importance:}}
-            \vspace{0.04cm}
             \centering
-            \fbox{\includegraphics[width=\linewidth,height=3.6cm,keepaspectratio]{images/proof5_pyspark_ml_evaluation_metrics.png}}
-            \vspace{0.03cm}
-            {\tiny \textbf{88.65\% Accuracy}, \textbf{0.8223 ROC-AUC}, 1,921-record Confusion Matrix, and Gini ranking.}
+            {\scriptsize\textbf{\textcolor{NavyBlue}{5. Random Forest Evaluation \& Gini Importance}}}\par
+            \vspace{0.06cm}
+            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.4cm,keepaspectratio]{images/proof5_pyspark_ml_evaluation_metrics.png}}}\par
+            \vspace{0.04cm}
+            {\tiny \textbf{88.65\% Accuracy}, \textbf{0.8223 ROC-AUC}, 1,921-record Confusion Matrix, Gini ranking.\par}
         \end{column}
         
         \begin{column}{0.49\textwidth}
-            \textbf{\textcolor{NavyBlue}{\scriptsize 6. Full-Stack SQLite Warehouse Terminal Query:}}
-            \vspace{0.04cm}
             \centering
-            \fbox{\includegraphics[width=\linewidth,height=3.6cm,keepaspectratio]{images/proof6_sqlite_data_warehouse_backend.png}}
-            \vspace{0.03cm}
-            {\tiny Terminal query on \texttt{crime\_warehouse.db} returning clearance rates in 0.8 ms.}
+            {\scriptsize\textbf{\textcolor{NavyBlue}{6. Full-Stack SQLite Warehouse Terminal Query}}}\par
+            \vspace{0.06cm}
+            {\fboxsep=1.5pt\fboxrule=0.6pt\fcolorbox{BorderGray}{white}{\includegraphics[width=0.96\linewidth,height=3.4cm,keepaspectratio]{images/proof6_sqlite_data_warehouse_backend.png}}}\par
+            \vspace{0.04cm}
+            {\tiny Terminal query on \texttt{crime\_warehouse.db} returning clearance rates in 0.8 ms.\par}
         \end{column}
     \end{columns}
 \end{frame}
